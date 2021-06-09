@@ -1,0 +1,7 @@
+
+
+
+
+export const GET_VEG_REQUEST = "GET_VEG_REQUEST"
+export const GET_VEG_SUCCESS = "GET_VEG_SUCCESS"
+export const GET_VEG_FAILURE = "GET_VEG_FAILURE"

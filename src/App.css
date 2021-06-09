@@ -1,0 +1,13 @@
+body{
+    font-family: jioFont   
+}
+h1{
+    text-align: center;
+}
+
+@font-face {
+    font-family: jioFont;
+    src: url('./Fonts/JioTypeW04-Medium.woff2');
+  }
+  
+  

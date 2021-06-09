@@ -1,10 +1,10 @@
 import React from "react"
 import {Typography,Card,CardActions,CardContent,CardMedia,CssBaseline,Grid,Toolbar,Container, Button} from "@material-ui/core"
-import {useStyles} from "./styles"
+import {useStyles} from "../JS/styles"
 import { useSelector,useDispatch } from "react-redux"
 import {getFruits} from "../../Redux/Fruits/action"
 import "../CSS/Fruits.css"
-import { Sorting } from "./Sorting"
+import { Sorting } from '../Sorting/Sorting';
 
 function FreshFruits(){
 
@@ -25,7 +25,7 @@ function FreshFruits(){
                <img src="https://www.jiomart.com/images/category/220/fresh-fruits-20200704.jpg" />
                </div>
                <div>
-                   <Sorting />
+                   <Sorting parent={"fruits"} />
                </div>
                <Container className={classes.cardGrid} maxWidth="md">
                         <Grid container spacing={1}>

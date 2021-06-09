@@ -1,9 +1,9 @@
 import React from 'react';
 import DropDown from './DropDown';
-import './TopBar.css';
+import './TopCatBar.css';
 import {categoriesData} from "../../Services/data"
 
-const TopBar = () => {
+const TopCatBar = () => {
 
   const mainCategory = categoriesData.categories[0].subCat.map((cat) => {
     return <DropDown category={cat} />;
@@ -20,4 +20,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+export default TopCatBar;

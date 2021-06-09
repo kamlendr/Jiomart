@@ -1,0 +1,28 @@
+
+.threelines{
+    margin-top: 24px;
+}
+.logoImg { 
+height: 37px;
+margin-top: 20px;
+}
+.serach_bar{
+    height: 40px;
+    margin-top: 15px;
+    width: 666px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+.signInLink{
+    font-size: 15px;
+    color: white;
+    margin-top: 20px;
+    font-weight: 500;
+}
+.iconInsideSearch{
+    height:24px;
+    margin-left:-35px;
+    position:absolute;
+    margin-top:24px;
+}

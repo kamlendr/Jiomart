@@ -8,12 +8,19 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    min-width: 1200px;
+    min-width: 1220px;
     margin-left: 5vw;
     margin-right: 5vw;
+    font-family: jioFont;
 }
 
 .pincode {
     display: block;
     text-align: center;
 }
+
+
+@font-face {
+    font-family: jioFont;
+    src: url('../../Fonts/JioTypeW04-Medium.woff2');
+  }

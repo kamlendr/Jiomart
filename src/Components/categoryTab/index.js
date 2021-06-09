@@ -1,4 +1,4 @@
-import TopBar from "./TopBar"
+import TopCatBar from "./TopCatBar"
 
-export {TopBar}
+export {TopCatBar}
 

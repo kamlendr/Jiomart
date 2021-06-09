@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
-import {FreshVegetables } from './Components';
+import {FreshFruits, FreshVegetables } from './Components';
 
 function Routes() {
   return (
@@ -13,8 +13,8 @@ function Routes() {
         <Route path='/FruitsVegetables/FreshVegetables'>
             <FreshVegetables/>
         </Route>
-        <Route path='/FruitsVegetables/FreshVegetables'>
-            <FreshVegetables/>
+        <Route path='/FruitsVegetables/FreshFruits'>
+            <FreshFruits/>
         </Route>
 
         <Route path='/FruitsVegetables'>

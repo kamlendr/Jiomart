@@ -2,8 +2,8 @@ import React from "react"
 import {Typography,Card,CardActions,CardContent,CardMedia,CssBaseline,Grid,Toolbar,Container, Button} from "@material-ui/core"
 import {useStyles} from "./styles"
 import { useSelector,useDispatch } from "react-redux"
-import {getFruits} from "./Redux/Fruits/action"
-import "./CSS/Fruits.css"
+import {getFruits} from "../../Redux/Fruits/action"
+import "../CSS/Fruits.css"
 import { Sorting } from "./Sorting"
 
 function FreshFruits(){

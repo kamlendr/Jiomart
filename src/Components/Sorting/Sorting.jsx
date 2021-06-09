@@ -6,21 +6,21 @@ import {  sortDiscount, sortHighToLow, sortLowToHigh } from "../../Redux/Sorting
 import { getFruits } from "../../Redux/Fruits/action"
 
 
-function Sorting(){
+function Sorting({parent}){
 
     const dispatch = useDispatch()
     
     const handleHighToLow = () =>{
-        dispatch(sortHighToLow())
+        dispatch(sortHighToLow(parent))
     }
     const handleLowToHigh = () =>{
-        dispatch(sortLowToHigh())
+        dispatch(sortLowToHigh(parent))
     }
     const handleDiscount = () =>{
-        dispatch(sortDiscount())
+        dispatch(sortDiscount(parent))
     }
     const handleAllProducts = () =>{
-        dispatch(getFruits())
+        dispatch(getFruits(parent))
     }
     return(
         <>

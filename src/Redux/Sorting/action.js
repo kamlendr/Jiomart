@@ -20,9 +20,9 @@ const sortFailure = (payload) =>{
     }
 }
 
-export const sortHighToLow = () =>(dispatch)=>{
+export const sortHighToLow = (payload) =>(dispatch)=>{
     dispatch(sortRequest())
-    axios.get("https://kanthuserver.herokuapp.com/items?category=fruits&_sort=cost&_order=DESC")
+    axios.get(`https://kanthuserver.herokuapp.com/items?category=${payload}&_sort=cost&_order=DESC`)
     .then((res)=>{
         dispatch(sortSuccess(res.data))
     })

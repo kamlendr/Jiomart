@@ -1,4 +1,3 @@
-import axios from "axios"
 import React from "react"
 import "../CSS/Fruits.css"
 import {useDispatch} from "react-redux"
@@ -9,6 +8,7 @@ import { getFruits } from "../../Redux/Fruits/action"
 function Sorting({parent}){
 console.log(parent)
     const dispatch = useDispatch()
+
     
     const handleHighToLow = () =>{
         dispatch(sortHighToLow(parent))

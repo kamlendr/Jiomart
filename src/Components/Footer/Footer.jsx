@@ -60,6 +60,7 @@ export function Footer1() {
        
     </Footer>
     <hr />
+  
     <div className={style.footerHead} style={{display:"flex",gap:"220px",marginLeft:"300px"}}>
         <div>Best viewed on Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+, Google Chrome 80+</div>
         <div>© 2021 All rights reserved. Reliance Retail Ltd.</div>

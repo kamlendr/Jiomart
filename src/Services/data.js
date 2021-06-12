@@ -85,7 +85,7 @@ export const categoriesData = {
             ],
           },
           {
-            name: 'Snacks & Branded Foods',
+            name: `Snacks & Branded Foods`,
             subSubCat: [
               {
                 name: 'Biscuits & Cookies',

@@ -1,9 +1,14 @@
 import {useState} from "react"
 import styled from "styled-components"
 import style from "./Navbar.module.css"
-
+import { Menu, Dropdown } from 'antd';
 export function NavBar(){
-  
+    
+      const menu = <Menu className='dMenu'>
+                 <Menu.Item className='hoverSubCat'>
+                     <input type="text" />
+          </Menu.Item>
+      </Menu>;
 
     return <Nav>
             <div className={style.threelines}>
@@ -14,8 +19,11 @@ export function NavBar(){
             </div>
             <div>
                 <input className={style.serach_bar} type="text" placeholder="    Search essentials, groceries, and more ..." /> 
-                <span><img className={style.iconInsideSearch} src="https://img.icons8.com/material-rounded/64/000000/list.png"/></span>
-                
+                <span>
+                <Dropdown trigger={["click"]} onClick={(e)=>e.preventDefault()}  overlay={menu}>
+                    <img className={style.iconInsideSearch} src="https://img.icons8.com/material-rounded/64/000000/list.png"/>
+    </Dropdown>
+    </span>
             </div>
             <div className={style.signInLink}><img style={{height:"24px"}} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDQyOS40NTMgNDI5LjQ1MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cGF0aCBzdHlsZT0iIiBkPSJNMjE0LjcyNywyNDEuODk0Yy0xMjkuMDQ1LDAtMjAwLjA5OCw2MS4xMjctMjAwLjA5OCwxNzEuODg2YzAsOC44ODIsNi43OTIsMTUuNjczLDE1LjY3MywxNS42NzMgICBoMzY4Ljg0OWM4Ljg4MiwwLDE1LjY3My02Ljc5MiwxNS42NzMtMTUuNjczQzQxNC44MjQsMzAzLjAyLDM0My43NzEsMjQxLjg5NCwyMTQuNzI3LDI0MS44OTR6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjNGRjZmUwIiBjbGFzcz0iIj48L3BhdGg+Cgk8cGF0aCBzdHlsZT0iIiBkPSJNMjE0LjcyNywyMTguOTA2YzU3LjQ2OSwwLDEwMy45NjctNTAuNjc4LDEwMy45NjctMTEyLjg0OUMzMTguNjk0LDQ1LjQ1MywyNzMuNzYzLDAsMjE0LjcyNywwICAgUzExMC43NTksNDUuNDUzLDExMC43NTksMTA2LjA1N0MxMTAuNzU5LDE2OC4yMjksMTU3LjI1NywyMTguOTA2LDIxNC43MjcsMjE4LjkwNnoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiM0ZGNmZTAiIGNsYXNzPSIiPjwvcGF0aD4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+" />
                <div style={{marginTop:"-22px",marginLeft:"30px"}}>    Sign in / Sign up</div> 

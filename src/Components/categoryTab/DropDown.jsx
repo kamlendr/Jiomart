@@ -3,6 +3,7 @@ import { Menu, Dropdown } from 'antd';
 import { Link } from 'react-router-dom';
 import './DropDown.css';
 
+
 const DropDown = ({ category }) => {
     let catName=category.name.replace(/ |&|,/g, "")
     const menu2 = category.subSubCat.map((subCat) => {
@@ -30,3 +31,4 @@ const DropDown = ({ category }) => {
 };
 
 export default DropDown;
+

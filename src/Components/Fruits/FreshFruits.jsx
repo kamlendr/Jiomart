@@ -37,7 +37,8 @@ function FreshFruits(){
                                             image="https://www.jiomart.com/assets/jiomsite/images/icons/new-veg.svg"
                                        />
                                         <CardMedia className={classes.cardMedia} 
-                                            image={item.image}
+                                            image={item.image} id="mouseOver"
+                                                
                                        />
                                        <CardContent className={classes.cardContent}>
                                             <Typography variant="h6" gutterBottom >

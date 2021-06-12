@@ -7,7 +7,7 @@ import {
   SideNavBar,
   Routes
 } from './Components';
-
+import {Footer1} from "./Components/Footer/Footer"
 
 import { NavBar } from './Components/Navbar/Navbar';
 
@@ -31,7 +31,9 @@ function App() {
       <main>
         <Routes />
       </main>
-      <footer className='footer-container'>footer</footer>
+      <footer className='footer-container'>
+        <Footer1/>
+      </footer>
     </div>
   );
 

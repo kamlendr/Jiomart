@@ -14,7 +14,7 @@ export const rootReducer = combineReducers({
 
    state:pReducer,
    categories:catReducer,
-   currentCat:currentCatReducer
+   currentCat:currentCatReducer,
 
    flour:flourReducer,
    biscuits:biscuitsReducer,

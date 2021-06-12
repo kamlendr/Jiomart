@@ -5,6 +5,7 @@ import './DropDown.css';
 import { useDispatch } from 'react-redux';
 import { changeCat } from '../../Redux/Products/categoryActions';
 
+
 const DropDown = ({ category }) => {
   const dispatch= useDispatch()
 
@@ -32,3 +33,4 @@ const DropDown = ({ category }) => {
 };
 
 export default DropDown;
+

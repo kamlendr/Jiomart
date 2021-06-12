@@ -41,7 +41,8 @@ function FreshFruits(){
                                     <div className="image-zoom">
 
                                         <CardMedia className={classes.cardMedia} 
-                                            image={item.image}
+                                            image={item.image} id="mouseOver"
+                                                
                                        />
                                      </div>  
 

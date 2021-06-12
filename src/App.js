@@ -1,8 +1,11 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import './App.css';
-import { TopCatBar, NavBar } from './Components';
-import Routes from './Routes';
+import {
+  TopCatBar,
+  NavBar,
+  SideNavBar,
+  Routes
+} from './Components';
 
 import { FreshFruits } from './Components/Fruits/FreshFruits';
 import { NavBar } from './Components/Navbar/Navbar';
@@ -11,15 +14,26 @@ import {Flours} from "./Components/Flours/Flours"
 import {Biscuits} from "./Components/Biscuits/Biscuits"
 
 function App() {
-  return <div className='App'>
-      <NavBar/>
-       <TopCatBar />
-      <FreshFruits />
-      <FreshVegetables />
-      <Flours />
-      <Biscuits />
-      <Routes />
 
-  </div>;
+  const [sideBarVisible, setSideBarVisible] = useState(false);
+  return (
+    <div className='App'>
+      <header className='nav-container'>
+        <NavBar setSideBarVisible={setSideBarVisible} />
+        <section className='top-cat-bar'>
+          <TopCatBar  />
+        </section>
+        <SideNavBar
+          sideBarVisible={sideBarVisible}
+          setSideBarVisible={setSideBarVisible}
+        />
+      </header>
+      <main>
+        <Routes />
+      </main>
+      <footer className='footer-container'>footer</footer>
+    </div>
+  );
+
 }
 export default App;

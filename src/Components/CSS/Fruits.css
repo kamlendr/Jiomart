@@ -87,14 +87,19 @@
 }
 
 /* Sorting */
-.sort{
+/* .sort{
     width: 55%;
     margin-top: 30px;
     display: flex;
     height: 25px;
-    /* border: 1px solid red; */
     margin-left: 44%;
 
+} */
+.sort{
+    margin: 3vmin 0;
+    display: grid;
+    justify-content: end;
+    
 }
 .sort button{
     width: 100px;
@@ -102,9 +107,8 @@
     font-size: 14px;
     margin-left: 5px;
     border: 1px solid whitesmoke;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 5px;
-    
 }
 .sort button:hover{
     border-color: #008ecc;

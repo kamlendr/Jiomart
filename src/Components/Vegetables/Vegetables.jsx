@@ -33,24 +33,29 @@ function FreshVegetables(){
                                 data.map((item)=>{
                                   return  <Grid item xs={12} md={6} lg={3}  >
                                     <Card className={classes.card}>
+                                    <img className="logo" src="https://www.jiomart.com/assets/jiomsite/images/icons/new-veg.svg" />
+
                                     <CardMedia  className={classes.green} 
                                             image="https://www.jiomart.com/assets/jiomsite/images/icons/new-veg.svg"
                                        />
+                                       <div className="image-zoom">
                                         <CardMedia className={classes.cardMedia} 
                                             image={item.image}
                                        />
+                                       </div>
                                        <CardContent className={classes.cardContent}>
-                                            <Typography variant="h6" gutterBottom >
+                                           <div className="title">
                                                 {item.title}
-                                            </Typography>
-                                            <Typography variant="p" gutterBottom >
+                                            </div> 
+                                            <div className="cost">
                                                 M.R.P: ₹{item.cost}
-                                            </Typography>
+                                            </div>
                                        </CardContent>
                                        <CardActions className={classes.button}>
-                                           <Button size="small">
-                                                Add to cart
-                                           </Button>
+                                       <button className="add-button">
+                                              <span className="content">Add to Cart</span> 
+                                              <span className="plus">+</span>
+                                           </button>
                                        </CardActions>
                                     </Card>
                                  </Grid>       

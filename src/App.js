@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
-import { TopCatBar, NavBar } from './Components';
+import { TopCatBar } from './Components';
 import Routes from './Routes';
 
 import { FreshFruits } from './Components/Fruits/FreshFruits';
@@ -14,10 +14,6 @@ function App() {
   return <div className='App'>
       <NavBar/>
        <TopCatBar />
-      <FreshFruits />
-      <FreshVegetables />
-      <Flours />
-      <Biscuits />
       <Routes />
 
   </div>;

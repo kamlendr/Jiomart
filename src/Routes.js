@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import {FreshFruits, FreshVegetables } from './Components';
+import {Flours} from "./Components/Flours/Flours"
+import {Biscuits} from "./Components/Biscuits/Biscuits"
 
 function Routes() {
   return (
@@ -25,14 +27,20 @@ function Routes() {
         <Route path='/DairyBakery'>
           <h1>DairyBakery</h1>
         </Route>
-        <Route path='/Staples'>
+        <Route path='/Staples' exact>
           <h1>Staples</h1>
+        </Route>
+        <Route path="/Staples/AttaFloursSooji">
+            <Flours />
         </Route>
         <Route path='/HomeCare'>
           <h1>HomeCare</h1>
         </Route>
-        <Route path='/SnacksBrandedFoods'>
+        <Route path='/SnacksBrandedFoods' exact>
           <h1>SnacksBrandedFoods</h1>
+        </Route>
+        <Route path="/SnacksBrandedFoods/BiscuitsCookies">
+            <Biscuits />
         </Route>
         <Route path='/Beverages'>
           <h1>Beverages</h1>

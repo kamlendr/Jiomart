@@ -52,3 +52,14 @@ export const sortDiscount = (payload) =>(dispatch)=>{
         dispatch(sortFailure(err))
     })
 }
+
+export const getAllProducts = (payload) =>(dispatch)=>{
+    dispatch(sortRequest())
+    axios.get(`https://kanthuserver.herokuapp.com/items?category=${payload}`)
+    .then((res)=>{
+        dispatch(sortSuccess(res.data))
+    })
+    .catch((err)=>{
+        dispatch(sortFailure(err))
+    })
+}

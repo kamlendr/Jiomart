@@ -1,8 +1,59 @@
-body{
-    margin: 0;
-    padding: 0;
+* {
+    box-sizing: border-box;
+  }
+
+  @font-face {
+      font-family: jioLight;
+      src: url('./Fonts/JioTypeW04-Light.woff2');
+  }
+  @font-face {
+      font-family: jioMedium;
+      src: url('./Fonts/JioTypeW04-Medium.woff2');
+  }
+  @font-face {
+      font-family: jioBold;
+      src: url('./Fonts/JioTypeW04-Bold.woff2');
+  }
+
+
+/* .contentContainer{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 16px;
+} */
+
+
+.App{
+    display: grid;
+    grid-template-rows: auto;
+    overflow-x: hidden;
+
 }
-h1{
+.nav-container{
+    display: grid;
+    grid-template-rows: auto;
+
+}
+.content-container{
+    padding: 2vmin;
+    display: grid;
+    grid-template-columns: auto 1fr;
+background: #F3F3F3;
+column-gap: 3vmin;
+}
+.bread-crumbs{
+    grid-column: 1 / span 2;
     text-align: center;
 }
+/* .side-bar{
+    padding: 0;
+    margin: 0;
+} */
 
+@media only screen and (max-width:600px) {
+    .top-cat-bar, .side-bar{
+       display: none;
+    }
+
+
+}

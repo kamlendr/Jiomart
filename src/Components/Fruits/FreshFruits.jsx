@@ -26,7 +26,7 @@ function FreshFruits(){
                <img src="https://www.jiomart.com/images/category/220/fresh-fruits-20200704.jpg" />
                </div>
                <div>
-                   <Sorting />
+                   <Sorting parent={"fruits"} />
                </div>
                <Container className={classes.cardGrid} maxWidth="md">
                         <Grid container spacing={1}>

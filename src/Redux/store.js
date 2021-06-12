@@ -10,17 +10,10 @@ export const rootReducer = combineReducers({
    vegetables:vegReducer,
    flour:flourReducer,
    biscuits:biscuitsReducer,
+
 })
 
-// const thunkMiddleware = (store) => (next) =>(action) =>{
-//   return typeof action === "function"
-//   ? action(store.dispatch,store.getState)
-//   :next(action)
-// }
 
-const composeEnhancers = (typeof window !== 'undefined' 
-&& window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-
- const enhancer = composeEnhancers(applyMiddleware(thunk))   
+ const enhancer = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() )   
 
 export const store = createStore(rootReducer,enhancer)

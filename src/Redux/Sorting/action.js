@@ -33,7 +33,7 @@ export const sortHighToLow = (payload) =>(dispatch)=>{
 
 export const sortLowToHigh = (payload) => (dispatch)=>{
     dispatch(sortRequest())
-    axios.get("https://kanthuserver.herokuapp.com/items?category=fruits&_sort=cost&_order=asc")
+    axios.get(`https://kanthuserver.herokuapp.com/items?category=${payload}&_sort=cost&_order=asc`)
     .then((res)=>{
         dispatch(sortSuccess(res.data))
     })
@@ -44,7 +44,7 @@ export const sortLowToHigh = (payload) => (dispatch)=>{
 
 export const sortDiscount = (payload) =>(dispatch)=>{
     dispatch(sortRequest())
-    axios.get("https://kanthuserver.herokuapp.com/items?category=fruits&_sort=discount&_order=DESC")
+    axios.get(`https://kanthuserver.herokuapp.com/items?category=${payload}&_sort=discount&_order=DESC`)
     .then((res)=>{
         dispatch(sortSuccess(res.data))
     })

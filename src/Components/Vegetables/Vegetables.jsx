@@ -1,18 +1,32 @@
-import React from "react"
-import {Typography,Card,CardActions,CardContent,CardMedia,CssBaseline,Grid,Toolbar,Container, Button} from "@material-ui/core"
-import {useStyles} from "../JS/styles"
-import { useSelector,useDispatch } from "react-redux"
-import "../CSS/Fruits.css"
-import { Sorting } from "../Sorting/Sorting"
-import { getVegetables } from "../../Redux/Vegetables/action"
+import React from 'react';
+import {
+  Typography,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+  Button,
+} from '@material-ui/core';
+import { useStyles } from '../JS/styles';
+import { useSelector, useDispatch } from 'react-redux';
+import '../CSS/Fruits.css';
+import { Sorting } from '../Sorting/Sorting';
+import { getVegetables } from '../../Redux/Vegetables/action';
 
-function FreshVegetables(){
+function FreshVegetables() {
+  const dispatch = useDispatch();
 
-    const  dispatch = useDispatch()
+  React.useEffect(() => {
+    dispatch(getVegetables());
+  }, []);
 
-    React.useEffect(()=>{
-        dispatch(getVegetables())
-    },[])
+  const { data } = useSelector((state) => state.vegetables);
+  const classes = useStyles();
+
 
     const {data} = useSelector((state)=>state.vegetables)
     const classes = useStyles()
@@ -69,4 +83,4 @@ function FreshVegetables(){
     )
     
 }
-export {FreshVegetables}
+export { FreshVegetables };

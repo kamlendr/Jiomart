@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+export const GET_FLOUR_REQUEST = "GET_FLOUR_REQUEST"
+export const GET_FLOUR_SUCCESS = "GET_FLOUR_SUCCESS"
+export const GET_FLOUR_FAILURE = "GET_FLOUR_FAILURE"

@@ -2,6 +2,7 @@ import React from 'react';
 import DropDown from './DropDown';
 import './TopCatBar.css';
 import {categoriesData} from "../../Services/data"
+import { useDispatch, useSelector } from 'react-redux';
 
 const TopCatBar = () => {
 

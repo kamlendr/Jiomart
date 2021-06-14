@@ -2,12 +2,16 @@ import React from 'react';
 import { Menu, Dropdown } from "antd";
 import { Link } from 'react-router-dom';
 import './DropDown.css';
+import { useDispatch } from 'react-redux';
+import { changeCat } from '../../Redux/Products/categoryActions';
+
 
 const DropDown = ({ category }) => {
-    let catName=category.name.replace(/ |&|,/g, "")
-    const menu2 = category.subSubCat.map((subCat) => {
-    let subCatName=subCat.name.replace(/ |&|,/g, "")
+  const dispatch= useDispatch()
 
+  let catName =(category.name.replace(/ & |, | /g, '-')).toLowerCase() ;
+  const menu2 = category.subSubCat.map((subCat) => {
+    let subCatName = (subCat.name.replace(/ & |, | /g, '-')).toLowerCase();
     return (
       <Menu.Item className='hoverSubCat'>
         <Link to={`/${catName}/${subCatName}`} rel='noopener noreferrer'>
@@ -17,16 +21,16 @@ const DropDown = ({ category }) => {
     );
   });
 
-
   const menu = <Menu className='dMenu'>{menu2}</Menu>;
 
   return (
-    <Dropdown overlay={menu}>
+    <Dropdown overlay={menu} onClick={()=>dispatch(changeCat(category.name))} className='dropDownContainer'>
       <Link to={`/${catName}`} className='ant-dropdown-link catLink'>
-        {<span className='CatTitle'>{category.name}</span>}
+        <span>{category.name}</span>
       </Link>
     </Dropdown>
   );
 };
 
 export default DropDown;
+

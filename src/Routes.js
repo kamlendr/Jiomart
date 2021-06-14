@@ -1,28 +1,31 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
+
 import {FreshFruits, FreshVegetables } from './Components';
 import {Flours} from "./Components/Flours/Flours"
 import {Biscuits} from "./Components/Biscuits/Biscuits"
 
+import LandingPage from './Components/landingPage/LandingPage';
+
+
 function Routes() {
   return (
-      <Switch>
-        <Route exact path='/'>
-          <h1>HOMEPAGE</h1>
-        </Route>
+    <Switch>
+      <Route exact path='/'>
+        <LandingPage />
+      </Route>
 
-        <Route path='/FruitsVegetables/FreshVegetables'>
-            <FreshVegetables/>
-        </Route>
-        <Route path='/FruitsVegetables/FreshFruits'>
-            <FreshFruits/>
-        </Route>
+      <Route path='/FruitsVegetables/FreshVegetables'>
+        <FreshVegetables />
+      </Route>
+      <Route path='/FruitsVegetables/FreshFruits'>
+        <FreshFruits />
+      </Route>
 
-        <Route path='/FruitsVegetables'>
-          <h1>FruitsVegetables</h1>
-        </Route>
-
+      <Route path='/FruitsVegetables'>
+        <h1>FruitsVegetables</h1>
+      </Route>
 
         <Route path='/DairyBakery'>
           <h1>DairyBakery</h1>
@@ -55,6 +58,7 @@ function Routes() {
           <h1>HomeKitchen</h1>
         </Route>
       </Switch>
+
   );
 }
 export default Routes;

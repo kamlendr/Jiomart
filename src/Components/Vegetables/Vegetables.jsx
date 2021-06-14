@@ -27,8 +27,7 @@ function FreshVegetables() {
   const { data } = useSelector((state) => state.vegetables);
   const classes = useStyles();
 
-
-    return(
+  return(
         <>
             <CssBaseline />
            <div className={classes.main}>

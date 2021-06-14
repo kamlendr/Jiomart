@@ -1,0 +1,23 @@
+@font-face {
+    font-family: jioLight;
+    src: url('../../Fonts/JioTypeW04-Light.woff2');
+}
+.colllapseContainer{
+font-family: jioLight;
+width: 250px;
+}
+
+.colllapseContainer ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.colllapseContainer h1{
+    text-align:left;
+     font-size:20px;
+     margin: 0.7em 0 0.1em 0;
+
+}
+hr{
+    display: none 
+}

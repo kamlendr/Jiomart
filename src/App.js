@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import { TopCatBar } from './Components';
+import Routes from './Routes';
 
 import {
   TopCatBar,

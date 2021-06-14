@@ -27,9 +27,6 @@ function FreshVegetables() {
   const { data } = useSelector((state) => state.vegetables);
   const classes = useStyles();
 
-
-   
-
     return(
         <>
             <CssBaseline />
@@ -38,9 +35,10 @@ function FreshVegetables() {
                <img src="https://www.jiomart.com/images/category/229/fresh-vegetables-20200704.jpg" />
                </div>
                <div>
-                   <Sorting />
+                   <Sorting parent={"vegetables"} />
                </div>
                <Container className={classes.cardGrid} maxWidth="md">
+               <p className="para">ALL PRODUCTS</p>
                         <Grid container spacing={1}>
                             {
                                 data.map((item)=>{

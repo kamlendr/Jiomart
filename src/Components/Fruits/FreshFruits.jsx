@@ -29,6 +29,7 @@ function FreshFruits(){
                    <Sorting parent={"fruits"} />
                </div>
                <Container className={classes.cardGrid} maxWidth="md">
+               <p className="para">ALL PRODUCTS</p>
                         <Grid container spacing={1}>
                             {
                                 data.map((item)=>{

@@ -1,3 +1,4 @@
+import { SORT_SUCCESS } from "../Sorting/actionType"
 import { GET_FLOUR_FAILURE, GET_FLOUR_REQUEST, GET_FLOUR_SUCCESS } from "./actionType"
 
 
@@ -26,7 +27,13 @@ export const flourReducer = (state=initState,{type,payload}) =>{
                 ...state,
                 isError:true,
                 isLoading:false
-            }         
+            }
+        case SORT_SUCCESS:
+            return{
+                ...state,
+                isLoading:false,
+                data:payload
+            }             
         default:
             return state    
     }

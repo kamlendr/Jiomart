@@ -26,9 +26,10 @@ function Biscuits(){
                <img src="https://www.jiomart.com/images/category/11/biscuits-cookies-20200704.jpg" />
                </div>
                <div>
-                   <Sorting />
+                   <Sorting parent={"biscuits"} />
                </div>
                <Container className={classes.cardGrid} maxWidth="md">
+                            <p className="para">ALL PRODUCTS</p>
                         <Grid container spacing={1}>
                             {
                                 data.map((item)=>{

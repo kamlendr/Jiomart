@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Cart } from './Cart/cart';
 import { FreshFruits, FreshVegetables, Products, ProductLayout } from './index';
 import {LoginPage} from "./LoginPage/LoginPage"
 function Routes( ) {
@@ -50,9 +51,11 @@ function Routes( ) {
           <ProductLayout mainCat='Home & Kitchen' />
         </Route>
         <Route path='/home-kitchen/:id' component={ProductLayout} />
-        <Route>
-          
-        <LoginPage/>
+        <Route exact path='/signIn'>
+          <LoginPage/>
+        </Route>
+        <Route exact path='/cart'>
+         <Cart/>
         </Route>
       </Switch>
     </div>

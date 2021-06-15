@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+
 import { TopCatBar } from './Components';
 // import Routes from './Routes';
 import Routes from "./Components/Routes"
+
 import {
 
  
@@ -12,7 +14,6 @@ import {
 import {Footer1} from "./Components/Footer/Footer"
 
 import { NavBar } from './Components/Navbar/Navbar';
-
 
 
 function App() {

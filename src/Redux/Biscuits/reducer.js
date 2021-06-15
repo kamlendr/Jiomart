@@ -1,3 +1,4 @@
+import { SORT_SUCCESS } from "../Sorting/actionType"
 import { GET_BISCUITS_FAILURE, GET_BISCUITS_REQUEST, GET_BISCUITS_SUCCESS } from "./actionType"
 
 
@@ -26,7 +27,13 @@ export const biscuitsReducer = (state=initState,{type,payload}) =>{
                 ...state,
                 isError:true,
                 isLoading:false
-            }         
+            }  
+        case SORT_SUCCESS:
+            return{
+                ...state,
+                isLoading:false,
+                data:payload
+            }           
         default:
             return state    
     }

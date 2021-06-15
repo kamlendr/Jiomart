@@ -1,7 +1,7 @@
 import React from "react"
 import "../CSS/Fruits.css"
 import {useDispatch} from "react-redux"
-import {  sortDiscount, sortHighToLow, sortLowToHigh } from "../../Redux/Sorting/action"
+import {  getAllProducts, sortDiscount, sortHighToLow, sortLowToHigh } from "../../Redux/Sorting/action"
 import { getFruits } from "../../Redux/Fruits/action"
 
 
@@ -19,7 +19,7 @@ function Sorting({parent}){
         dispatch(sortDiscount(parent))
     }
     const handleAllProducts = () =>{
-        dispatch(getFruits(parent))
+        dispatch(getAllProducts(parent))
     }
     return(
         <div className="sort">

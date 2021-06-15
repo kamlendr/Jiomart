@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from "react-redux"
 import {getFruits} from "../../Redux/Fruits/action"
 import "../CSS/Fruits.css"
 import { Sorting } from "../Sorting/Sorting"
+import { Link } from "react-router-dom"
 
 
 function FreshFruits(){
@@ -29,6 +30,7 @@ function FreshFruits(){
                    <Sorting parent={"fruits"} />
                </div>
                <Container className={classes.cardGrid} maxWidth="md">
+               <p className="para">ALL PRODUCTS</p>
                         <Grid container spacing={1}>
                             {
                                 data.map((item)=>{
@@ -39,11 +41,11 @@ function FreshFruits(){
                                             image="https://www.jiomart.com/assets/jiomsite/images/icons/new-veg.svg"
                                        />
                                     <div className="image-zoom">
-
+                                        <Link to={`/${item.category}/${item.id}`}>
                                         <CardMedia className={classes.cardMedia} 
-                                            image={item.image} id="mouseOver"
-                                                
+                                            image={item.image} id="mouseOver"      
                                        />
+                                       </Link>
                                      </div>  
 
                                        <CardContent className={classes.cardContent}>

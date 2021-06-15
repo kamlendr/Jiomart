@@ -1,24 +1,43 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Switch, Route } from 'react-router-dom';
 import { FreshFruits, FreshVegetables, Products, ProductLayout } from './index';
 import LandingPage from './landingPage/LandingPage';
 
 function Routes() {
+=======
+
+import { Switch, Route, useParams } from 'react-router-dom';
+import { FreshFruits, Products, ProductLayout } from './index';
+import {SingleProduct} from "./SingleProduct/SingleProduct"
+import {FreshVegetables} from "./Vegetables/Vegetables"
+import {LoginPage} from "./LoginPage/LoginPage"
+import { Cart } from './Cart/cart';
+
+function Routes( ) {
+
+>>>>>>> 3518e164482155b0ebf5379aa801d35222354607
   return (
     <div className='contentContainer'>
       <Switch>
         <Route exact path='/'>
           <LandingPage />
         </Route>
-        <Route path='/fruits-vegetables/fresh-vegetables'>
+        <Route path="/fruits-vegetables/fresh-fruits" exact>
+            <FreshFruits />
+        </Route>
+        <Route path='/fruits-vegetables/fresh-vegetables' exact>
           <FreshVegetables />
+        </Route>
+        <Route path="/:category/:id">
+          <SingleProduct />
         </Route>
         <Route path='/fruits-vegetables/fresh-fruits'>
           <ProductLayout />
         </Route>
-        <Route path='/fruits-vegetables'>
+        {/* <Route path='/fruits-vegetables'>
           <h1>FruitsVegetables</h1>
-        </Route>
+        </Route> */}
         <Route exact path='/dairy-bakery'>
           <ProductLayout mainCat='Dairy & Bakery' />
         </Route>
@@ -51,6 +70,12 @@ function Routes() {
           <ProductLayout mainCat='Home & Kitchen' />
         </Route>
         <Route path='/home-kitchen/:id' component={ProductLayout} />
+        <Route exact path='/signIn'>
+          <LoginPage/>
+        </Route>
+        <Route exact path='/cart'>
+         <Cart/>
+        </Route>
       </Switch>
     </div>
   );

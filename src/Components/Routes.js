@@ -1,23 +1,34 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { FreshFruits, FreshVegetables, Products, ProductLayout } from './index';
+import { Switch, Route, useParams } from 'react-router-dom';
+import { FreshFruits, Products, ProductLayout } from './index';
+import {SingleProduct} from "./SingleProduct/SingleProduct"
+import {FreshVegetables} from "./Vegetables/Vegetables"
+import {AutoGrid} from "./SingleProduct/SingleProduct"
 
 function Routes( ) {
+
   return (
     <div className='contentContainer'>
       <Switch>
         <Route exact path='/'>
           <h1>HOMEPAGE</h1>
         </Route>
-        <Route path='/fruits-vegetables/fresh-vegetables'>
+        <Route path="/fruits-vegetables/fresh-fruits" exact>
+            <FreshFruits />
+        </Route>
+        <Route path='/fruits-vegetables/fresh-vegetables' exact>
           <FreshVegetables />
+        </Route>
+        <Route path="/:category/:id">
+          {/* <SingleProduct /> */}
+          <AutoGrid />
         </Route>
         <Route path='/fruits-vegetables/fresh-fruits'>
           <ProductLayout />
         </Route>
-        <Route path='/fruits-vegetables'>
+        {/* <Route path='/fruits-vegetables'>
           <h1>FruitsVegetables</h1>
-        </Route>
+        </Route> */}
         <Route exact path='/dairy-bakery'>
           <ProductLayout mainCat='Dairy & Bakery' />
         </Route>

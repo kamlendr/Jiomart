@@ -6,6 +6,7 @@ import { fruitsReducer } from "./Fruits/reducer"
 import { catReducer } from "./Products/catReducer"
 import { currentCatReducer } from "./Products/currentCategory"
 import { pReducer } from "./Products/pReducer"
+import { singleProductReducer } from "./SingleProduct/reducer"
 import { vegReducer } from "./Vegetables/reducer"
 
 export const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ export const rootReducer = combineReducers({
 
    flour:flourReducer,
    biscuits:biscuitsReducer,
+   singleProduct:singleProductReducer,
 
 })
 

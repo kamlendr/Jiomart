@@ -4,7 +4,6 @@ import { Switch, Route, useParams } from 'react-router-dom';
 import { FreshFruits, Products, ProductLayout } from './index';
 import {SingleProduct} from "./SingleProduct/SingleProduct"
 import {FreshVegetables} from "./Vegetables/Vegetables"
-import {AutoGrid} from "./SingleProduct/SingleProduct"
 import {LoginPage} from "./LoginPage/LoginPage"
 import { Cart } from './Cart/cart';
 
@@ -23,8 +22,7 @@ function Routes( ) {
           <FreshVegetables />
         </Route>
         <Route path="/:category/:id">
-          {/* <SingleProduct /> */}
-          <AutoGrid />
+          <SingleProduct />
         </Route>
         <Route path='/fruits-vegetables/fresh-fruits'>
           <ProductLayout />

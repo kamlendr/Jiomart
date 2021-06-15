@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
  
 }));
 
-function AutoGrid() {
+function SingleProduct() {
     const [number,setNumber] = React.useState("")
 
     const {category,id} = useParams()
@@ -174,4 +174,4 @@ const handleTest = () =>{
     </div>
   );
 }
-export {AutoGrid}
+export {SingleProduct}

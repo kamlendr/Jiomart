@@ -8,6 +8,7 @@ import {
   Routes
 } from './Components';
 import {Footer1} from "./Components/Footer/Footer"
+import LandingPage from './Components/landingPage/LandingPage';
 
 import { NavBar } from './Components/Navbar/Navbar';
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { FreshFruits, FreshVegetables, Products, ProductLayout } from './index';
+import LandingPage from './landingPage/LandingPage';
 
-function Routes( ) {
+function Routes() {
   return (
     <div className='contentContainer'>
       <Switch>
         <Route exact path='/'>
-          <h1>HOMEPAGE</h1>
+          <LandingPage />
         </Route>
         <Route path='/fruits-vegetables/fresh-vegetables'>
           <FreshVegetables />

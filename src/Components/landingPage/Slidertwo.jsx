@@ -21,6 +21,18 @@ SwiperCore.use([Pagination, Navigation]);
 
 export default function Slidertwo() {
 
+    let Categories = ["https://www.jiomart.com/images/cms/aw_rbslider/slides/1602257194_Atta_Web.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1598825980_1598704463_Biscuits-Cookies.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1612274538_paneer.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1612272383_kidswear.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1612272459_womenwear.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1606400616_Top-Categories-03.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1598824690_1598720641_Shampoos_Conditioners.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1598824614_1598720607_tea.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1604594445_womenetinic_web.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1606400641_Top-Categories-01.jpg",
+        "https://www.jiomart.com/images/cms/aw_rbslider/slides/1604594554_infant_web.jpg"]
+
 
 
     const swiperRef = useRef(null);
@@ -52,15 +64,13 @@ export default function Slidertwo() {
 
     return (
         <>
-
-            <Swiper ref={swiperRef} slidesPerView={3} centeredSlides={true} spaceBetween={30} pagination={{
-                "type": "fraction"
-            }} navigation={true} className="mySwiper">
-                <SwiperSlide><img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1602257194_Atta_Web.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-            </Swiper>
+            <div style={{transform: "translate3d(0px, 0px, 0px)"}}>
+                <Swiper ref={swiperRef} slidesPerView={3} centeredSlides={true} spaceBetween={30} pagination={{
+                    "type": "fraction"
+                }} navigation={true} className="mySwiper">
+                    {Categories.map((el) => (<SwiperSlide><img style={{ width: "200px", margin: "0", height: "250px" }} src={el} alt="" /></SwiperSlide>))}
+                </Swiper>
+            </div>
         </>
     )
 }

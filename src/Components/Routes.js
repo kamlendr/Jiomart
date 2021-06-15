@@ -1,9 +1,12 @@
 import React from 'react';
+
 import { Switch, Route, useParams } from 'react-router-dom';
 import { FreshFruits, Products, ProductLayout } from './index';
 import {SingleProduct} from "./SingleProduct/SingleProduct"
 import {FreshVegetables} from "./Vegetables/Vegetables"
 import {AutoGrid} from "./SingleProduct/SingleProduct"
+import {LoginPage} from "./LoginPage/LoginPage"
+import { Cart } from './Cart/cart';
 
 function Routes( ) {
 
@@ -61,6 +64,12 @@ function Routes( ) {
           <ProductLayout mainCat='Home & Kitchen' />
         </Route>
         <Route path='/home-kitchen/:id' component={ProductLayout} />
+        <Route exact path='/signIn'>
+          <LoginPage/>
+        </Route>
+        <Route exact path='/cart'>
+         <Cart/>
+        </Route>
       </Switch>
     </div>
   );

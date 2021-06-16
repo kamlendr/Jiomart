@@ -28,8 +28,6 @@ function FreshVegetables() {
   const classes = useStyles();
 
 
-    const {data} = useSelector((state)=>state.vegetables)
-    const classes = useStyles()
 
     return(
         <>

@@ -5,6 +5,7 @@ import { TopCatBar, NavBar, SideNavBar, Routes } from './Components';
 import { Context } from './Components/Context/ContextProvider';
 import NavigationBar from './Components/Navigation/NavigationBar';
 function App() {
+
   const [sideBarVisible, setSideBarVisible] = useState(false);
   const { setcartPopUpVisible } = useContext(Context);
 
@@ -33,5 +34,6 @@ useEffect(() => {
         <footer className='footer-container'>footer</footer>
     </div>
   );
+
 }
 export default App;

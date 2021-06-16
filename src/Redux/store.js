@@ -1,5 +1,7 @@
 import {applyMiddleware, combineReducers, createStore,compose} from "redux" 
 import thunk from "redux-thunk"
+import { biscuitsReducer } from "./Biscuits/reducer"
+import { flourReducer } from "./Flours/reducer"
 import { fruitsReducer } from "./Fruits/reducer"
 import { cartReducer } from "./Products/cartReducer"
 import { catReducer } from "./Products/catReducer"
@@ -11,6 +13,7 @@ import { vegReducer } from "./Vegetables/reducer"
 export const rootReducer = combineReducers({
    fruits:fruitsReducer,
    vegetables:vegReducer,
+
    state:pReducer,
    categories:catReducer,
    currentCat:currentCatReducer,

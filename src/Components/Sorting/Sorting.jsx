@@ -7,6 +7,7 @@ import { getFruits } from "../../Redux/Fruits/action"
 
 function Sorting({parent}){
     const dispatch = useDispatch()
+
     
     const handleHighToLow = () =>{
         dispatch(sortHighToLow(parent))

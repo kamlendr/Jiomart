@@ -18,7 +18,7 @@ export const catReducer = (state = initialState, action) => {
         case CATEGORY_SUCCESS:
             return {
                 loading: false,
-                products: action.payload,
+                category: action.payload,
             }
 
         case CATEGORY_FAIL:

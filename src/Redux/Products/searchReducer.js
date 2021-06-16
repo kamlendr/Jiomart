@@ -1,29 +1,29 @@
-import { PRODUCTS_FAIL, PRODUCTS_REQUEST, PRODUCTS_SUCCESS } from "./action_types"
+import { SEARCH_FAIL, SEARCH_REQUEST, SEARCH_SUCCESS } from "./action_types"
 
 
 const initialState={
     loading:false,
-    products:[],
+    searchResults:[],
     error:false,
-    paginateData:""
+    paginateData:{}
 }
 
-export const pReducer = (state = initialState, action) => {
+export const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-        case PRODUCTS_REQUEST:
+        case SEARCH_REQUEST:
             return {
                 ...state,
                 loading: true,
             }
 
-        case PRODUCTS_SUCCESS:
+        case SEARCH_SUCCESS:
             return {
                 loading: false,
-                products: action.payload.data,
+                searchResults: action.payload.data,
                 paginateData:action.payload.headers["x-total-count"]
             }
 
-        case PRODUCTS_FAIL:
+        case SEARCH_FAIL:
             return {
                 ...state,
                 loading: false,

@@ -27,7 +27,7 @@ opacity: 1;
 
 }
 hr{
-    display: none;
+    display: none 
 }
 .colllapseContainer a{
     color: #008ecc;

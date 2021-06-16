@@ -1,0 +1,36 @@
+.mainFooter{
+    height: 450px;
+    background-color: rgb(237,237,239);
+}
+.footerHead{
+    font-weight: 600;
+    font-size: 12px;
+}
+.leftCont{
+    margin-left: 250px;
+    margin-top: 50px;
+    
+}
+.leftCont>p{
+    font-size: 12px;
+    line-height: 12px;
+    cursor: pointer;
+}
+.rigthCont{
+    
+    margin-top: 50px;
+
+}
+.rigthCont>p{
+    font-size: 12px;
+    line-height: 8px;
+    cursor: pointer;
+}
+.link{
+    text-decoration: none;
+    color: rgb(0,142,206);
+    font-weight: 600;
+}
+hr{
+    display: block !important;
+}

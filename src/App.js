@@ -4,6 +4,7 @@ import './App.css';
 import { TopCatBar, NavBar, SideNavBar, Routes } from './Components';
 import { Context } from './Components/Context/ContextProvider';
 import NavigationBar from './Components/Navigation/NavigationBar';
+
 function App() {
 
   const [sideBarVisible, setSideBarVisible] = useState(false);
@@ -15,7 +16,7 @@ useEffect(() => {
 
   return (
     <div className='App'>
-      
+  
         <header className='nav-container'>
           <div className='sticky-nav'>
             <NavigationBar setSideBarVisible={setSideBarVisible}  />
@@ -32,6 +33,9 @@ useEffect(() => {
           <Routes />
         </main>
         <footer className='footer-container'>footer</footer>
+
+
+
     </div>
   );
 

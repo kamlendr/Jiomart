@@ -11,11 +11,12 @@ import {
   getProducts,
   getCategoryDetails,
   updateCart,
+  searchProducts,
 } from '../Redux/Products/actions';
 import { SortBar } from './index';
 import { categoriesData } from '../Services/data';
 import '../App.css';
-import './ProductLayout.css';
+import './SearchResultPage.css';
 import { SideCatBar, JioButton, PlusMinusBtn } from './index';
 import axios from 'axios';
 import { Context } from './Context/ContextProvider';
@@ -39,7 +40,7 @@ function categoryImageFilter(id) {
   return currentSubcatDetails;
 }
 
-const ProductLayout = ({ match, mainCat }) => {
+const SearchResultPage = ({ match, mainCat,  history, location }) => {
   const cart = useSelector((store) => store.cart.cartItems);
   const { setcartPopUpVisible } = useContext(Context);
 
@@ -56,62 +57,17 @@ const ProductLayout = ({ match, mainCat }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const dynamicLink = match && match.params.id;
-  console.log(mainCat)
-  console.log(dynamicLink);
   const dispatch = useDispatch();
   const { products, paginateData } = useSelector((state) => ({
-    products: state.state.products,
-    paginateData: state.state.paginateData,
-    cart: state.cart,
+    products: state.searchResults.searchResults,
+    paginateData: state.searchResults.paginateData,
   }));
   useEffect(() => {
-    dispatch(
-      getProducts(sort, mainCat, dynamicLink, types, brands, price, currentPage)
-    );
+    dispatch(searchProducts(dynamicLink, sort, currentPage));
 
     return () => {};
-  }, [dispatch, sort, mainCat, dynamicLink, types, brands, price, currentPage]);
+  }, [dispatch, sort, dynamicLink, currentPage]);
 
-  useEffect(() => {
-    const fetchProducts = axios.create({
-      baseURL: 'http://localhost:3004',
-      method: 'get',
-      params: {
-        cat: dynamicLink,
-        type: types,
-        brand: brands,
-        _sort: 'cost',
-      },
-    });
-    function getHighestProductPrice() {
-      return fetchProducts('/products', { params: { _order: 'desc' } });
-    }
-    function getLowestProductPrice() {
-      return fetchProducts('/products', { params: { _order: 'asc' } });
-    }
-    let lowestPrice, highestPrice;
-    Promise.all([getHighestProductPrice(), getLowestProductPrice()]).then(
-      (results) => {
-        highestPrice = results[0].data[0] && results[0].data[0].cost;
-        lowestPrice = results[1].data[0] && results[1].data[0].cost;
-        setPriceRange([lowestPrice, highestPrice]);
-      }
-    );
-    return () => {
-      setPriceRange([]);
-    };
-  }, [dispatch, mainCat, dynamicLink, types, brands]);
-
-  useEffect(() => {
-    setPrice([]);
-    setTypes([]);
-    setBrands([]);
-    setSort({ property: '', order: '' });
-  }, [dynamicLink]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [types, brands, sort, price]);
 
   return (
     <div className='content-container'>
@@ -146,8 +102,8 @@ const ProductLayout = ({ match, mainCat }) => {
               </section>
             ) || (
               <section>
-                {
-                  dynamicLink && <DefaultTitleImage titleText={dynamicLink}/>
+                {location.pathname.includes("/search/") &&
+                  dynamicLink && <DefaultTitleImage titleText={`Search Results for: ${dynamicLink}`}/>
                 }
                 
               </section>
@@ -260,4 +216,5 @@ const ProductLayout = ({ match, mainCat }) => {
   );
 };
 
-export default ProductLayout;
+export default SearchResultPage;
+

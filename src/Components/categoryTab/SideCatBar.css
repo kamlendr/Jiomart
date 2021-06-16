@@ -6,11 +6,19 @@
 font-family: jioLight;
 width: 250px;
 }
-
+.colllapseContainer a{
+    color:black
+}
 .colllapseContainer ul{
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+.colllapseContainer li{
+opacity: 0.75;
+}
+.colllapseContainer li:hover{
+opacity: 1;
 }
 .colllapseContainer h1{
     text-align:left;
@@ -20,4 +28,18 @@ width: 250px;
 }
 hr{
     display: none 
+}
+.colllapseContainer a{
+    color: #008ecc;
+    text-decoration: none;
+}
+.sideCatBarHeader{
+    display:inline-block;
+    opacity: 0.75;
+
+}
+.sideCatBarHeader:hover{
+    display:inline-block;
+    opacity:1;
+
 }

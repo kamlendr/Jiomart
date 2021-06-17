@@ -4,6 +4,13 @@ import './App.css';
 import { TopCatBar, NavBar, SideNavBar, Routes } from './Components';
 import { Context } from './Components/Context/ContextProvider';
 import NavigationBar from './Components/Navigation/NavigationBar';
+import { NavBar } from './Components/Navbar/Navbar';
+
+
+
+import { TopCatBar } from './Components';
+// import Routes from './Routes';
+import Routes from "./Components/Routes"
 
 function App() {
 

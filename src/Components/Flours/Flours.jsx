@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from "react-redux"
 import "../CSS/Fruits.css"
 import { Sorting } from "../Sorting/Sorting"
 import { getFlour } from "../../Redux/Flours/action"
+import { Link } from "react-router-dom"
 
 
 function Flours(){
@@ -46,10 +47,11 @@ function Flours(){
                                             image="https://www.jiomart.com/assets/jiomsite/images/icons/new-veg.svg"
                                        />
                                     <div className="image-zoom">
-
+                                        <Link to={`${item.category}/${item.id}`}>
                                         <CardMedia className={classes.cardMedia} 
                                             image={item.image}
                                        />
+                                       </Link>
                                      </div>  
 
                                        <CardContent className={classes.cardContent}>

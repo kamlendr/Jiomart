@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from "react-redux"
 import "../CSS/Fruits.css"
 import { Sorting } from "../Sorting/Sorting"
 import { getBiscuits } from "../../Redux/Biscuits/action"
+import {Link} from "react-router-dom"
 
 
 function Biscuits(){
@@ -47,9 +48,11 @@ function Biscuits(){
                                        />
                                     <div className="image-zoom">
 
+                                        <Link to={`${item.category}/${item.id}`}>
                                         <CardMedia className={classes.cardMedia} 
                                             image={item.image}
                                        />
+                                       </Link>
                                      </div>  
 
                                        <CardContent className={classes.cardContent}>

@@ -12,7 +12,15 @@ import SearchResultPage from './SearchResultPage';
 import SearchBar from './SearchBar/SearchBar';
 import {JioButton,PlusMinusBtn} from './JioButton/JioButton';
 import ContextProvider from './Context/ContextProvider';
+import {Cart} from "./Cart/Cart"
+import {LoginPage} from "./LoginPage/LoginPage" 
+import SingleProductPage from './SingleProductPage/SingleProductPage';
+import { SingleProduct } from './SingleProduct/SingleProduct';
 export {
+  SingleProduct,
+  SingleProductPage,
+  Cart,
+  LoginPage,
   ContextProvider,
   PlusMinusBtn,
   JioButton,

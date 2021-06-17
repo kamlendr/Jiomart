@@ -5,6 +5,7 @@ import parse from 'parse-link-header';
 import OfferBg from '../Icons/OfferBg';
 import VegIndicator from '../Icons/VegIndicator';
 import DefaultTitleImage from '../Icons/DefaultTitleImage';
+import {Link} from "react-router-dom"
 
 // var parsed = parse(linkHeader);
 import {
@@ -162,76 +163,80 @@ const ProductLayout = ({ match, mainCat }) => {
               {products.map((product) => {
                 return (
                   <div className='card'>
-                    <section
-                    className="card-img-section"
-                    >
-                      {product.discount ? (
-                        <span>
-                          <OfferBg
-                            discount={product.discount}
-                            style={{width:"40px" }}
-                          />
-                        </span>
-                      ) : (
-                        <span>
-                          <p style={{opacity:0}} >ypuii</p>
-                        </span>
-                      )}
-                      <img
-                        src={product.image}
-                        alt='pImage'
-                        style={{
-                          textAlign: 'center',
-                          alignSelf: 'flex-end',
-                        }}
-                      />
-                      <span>
-                        <VegIndicator />
-                      </span>
-                    </section>
-
-                    <section className="card-detail-section" >
-                      <section>
-                        <p>{product.title}</p>
-                      </section>
-                      <section>
-                        <p>
-                          <span style={{ fontSize: '16px' }}>
-                            &#8377; {product.cost}
-                          </span>
+                      <Link to={`/${product.id}`} >
+                      <section
+                      className="card-img-section"
+                      >
+                        {product.discount ? (
                           <span>
-                            {product.discount && (
-                              <span className='mrp'>
-                                MRP:{' '}
-                                {
-                                  <span
-                                    style={{ textDecoration: 'line-through' }}
-                                  >
-                                    &#8377; {product.mrp}
-                                  </span>
-                                }{' '}
-                              </span>
-                            )}
+                            <OfferBg
+                              discount={product.discount}
+                              style={{width:"40px" }}
+                            />
                           </span>
-                        </p>
-                      </section>
-                      <section className="btn-section">
-                        {product.id in cart ? (
-                          <PlusMinusBtn product={product} />
                         ) : (
-                          <span
-                          // style={{alignSelf:"flex-start"}}
-                            onClick={() => {
-                              setcartPopUpVisible(true);
-                              dispatch(updateCart({ product, quantity: 1 }));
-                            }}
-                          >
-                            <JioButton myProduct={product} />
+                          <span>
+                            <p style={{opacity:0}} >ypuii</p>
                           </span>
                         )}
+                        <img
+                          src={product.image}
+                          alt='pImage'
+                          style={{
+                            textAlign: 'center',
+                            alignSelf: 'flex-end',
+                            width:'150px'
+                          }}
+                        />
+                        <span>
+                          <VegIndicator />
+                        </span>
                       </section>
-                    </section>
-                  </div>
+                        </Link>
+                      <section className="card-detail-section" >
+                        <section>
+                          <p>{product.title}</p>
+                        </section>
+                        <section>
+                          <p>
+                            <span style={{ fontSize: '16px' }}>
+                              &#8377; {product.cost}
+                            </span>
+                            <span>
+                              {product.discount && (
+                                <span className='mrp'>
+                                  MRP:{' '}
+                                  {
+                                    <span
+                                      style={{ textDecoration: 'line-through' }}
+                                    >
+                                      &#8377; {product.mrp}
+                                    </span>
+                                  }{' '}
+                                </span>
+                              )}
+                            </span>
+                          </p>
+                        </section>
+                        
+                        <section className="btn-section">
+                          {product.id in cart ? (
+                            <PlusMinusBtn product={product} />
+                          ) : (
+                            <span
+                            // style={{alignSelf:"flex-start"}}
+                              onClick={() => {
+                                setcartPopUpVisible(true);
+                                dispatch(updateCart({ product, quantity: 1 }));
+                              }}
+                            >
+                              <JioButton myProduct={product} />
+                            </span>
+                          )}
+                        </section>
+                      </section>
+                    </div>
+                  
                 );
               })}
             </div>

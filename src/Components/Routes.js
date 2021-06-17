@@ -7,6 +7,10 @@ import {
   FreshVegetables,
   Products,
   ProductLayout,
+  Cart,
+  LoginPage,
+  SingleProductPage,
+  SingleProduct
 } from './index';
 
 function Routes({ popUpState }) {
@@ -40,6 +44,7 @@ function Routes({ popUpState }) {
           <ProductLayout mainCat='beverages' />
         </Route>
         <Route path='/beverages/:id' component={ProductLayout} />
+
         <Route exact path='/personal-care'>
           <ProductLayout mainCat='personal-care' />
         </Route>
@@ -56,6 +61,8 @@ function Routes({ popUpState }) {
           <ProductLayout mainCat='home-kitchen' />
         </Route>
         <Route path='/home-kitchen/:id' component={ProductLayout} />
+        <Route path='/:id' component={SingleProduct} />
+
         <Route exact path='/signIn'>
           <LoginPage/>
         </Route>
@@ -68,9 +75,4 @@ function Routes({ popUpState }) {
 }
 export default Routes;
 
-//         </Switch>
 
-// </div>
-//   );
-// }
-// export default Routes;

@@ -25,7 +25,7 @@ export const rootReducer = combineReducers({
    currentCat:currentCatReducer,
 
    searchResults:searchReducer,
-   cart:cartReducer
+   cart:cartReducer,
 
 
    flour:flourReducer,

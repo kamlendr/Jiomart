@@ -5,30 +5,42 @@ import {
   PRODUCTS_FAIL,
   PRODUCTS_REQUEST,
   PRODUCTS_SUCCESS,
+  REMOVE_FROM_CART,
+  SEARCH_FAIL,
+  SEARCH_REQUEST,
+  SEARCH_SUCCESS,
+  UPDATE_CART,
 } from './action_types';
 import axios from 'axios';
 
 export const getProducts =
-  (sort,mainCat='',keyword = '', currentPage = 1, price, category) =>
+  (sort, mainCat = '', cat, types, brands, price, currentPage) =>
   async (dispatch) => {
-      
     const fetchProducts = axios.create({
       baseURL: 'http://localhost:3004',
       method: 'get',
-      params:{
-        _sort:sort.property,
-        _order:sort.order
-      }
+      params: {
+        _sort: sort.property,
+        _order: sort.order,
+        cat: cat,
+        type: types,
+        brand: brands,
+        cost_lte: price[1],
+        cost_gte: price[0],
+        _limit: 12,
+        _page: currentPage,
+      },
     });
     try {
       dispatch({ type: PRODUCTS_REQUEST });
 
-      const { data } = mainCat ? await fetchProducts('/products',{params:{mainCat:mainCat}}) : await fetchProducts('/products') 
-      
+      const response = mainCat
+        ? await fetchProducts('/products', { params: { mainCat: mainCat } })
+        : await fetchProducts('/products');
 
       dispatch({
         type: PRODUCTS_SUCCESS,
-        payload: data,
+        payload: response,
       });
     } catch (error) {
       dispatch({
@@ -38,25 +50,62 @@ export const getProducts =
     }
   };
 
+export const getCategoryDetails = (payload) => async (dispatch) => {
+  try {
+    dispatch({ type: CATEGORY_REQUEST });
 
-export const getCategoryDetails =
-  (payload) =>
+    const { data } = await axios.get('http://localhost:3004/categories');
+
+    dispatch({
+      type: CATEGORY_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CATEGORY_FAIL,
+      payload: error.response,
+    });
+  }
+};
+
+
+export const searchProducts =
+  ( query,sort,currentPage) =>
   async (dispatch) => {
-
+    const fetchProducts = axios.create({
+      baseURL: 'http://localhost:3004',
+      method: 'get',
+      params: {
+        q:query,
+        _sort: sort.property,
+        _order: sort.order,
+        _limit: 12,
+        _page: currentPage,
+      },
+    });
     try {
-      dispatch({ type: CATEGORY_REQUEST });
+      dispatch({ type: SEARCH_REQUEST });
 
-      const { data } =  await axios.get('http://localhost:3004/categories')
-      
+      const response =await fetchProducts('/products');
 
       dispatch({
-        type: CATEGORY_SUCCESS,
-        payload: data,
+        type: SEARCH_SUCCESS,
+        payload: response,
       });
     } catch (error) {
       dispatch({
-        type: CATEGORY_FAIL,
+        type: SEARCH_FAIL,
         payload: error.response,
       });
     }
   };
+export const updateCart = (payload) => {
+  return payload.quantity!==0 ?{
+    type:UPDATE_CART,
+    payload: payload
+  } :{
+    type:REMOVE_FROM_CART,
+    payload: payload.product.id
+  } 
+
+}

@@ -6,6 +6,9 @@ import {SingleProduct} from "./SingleProduct/SingleProduct"
 import {FreshVegetables} from "./Vegetables/Vegetables"
 import {LoginPage} from "./LoginPage/LoginPage"
 import { Cart } from './Cart/cart';
+import {Flours} from "./Flours/Flours"
+import {Biscuits} from "./Biscuits/Biscuits"
+import {LandingPage} from "./landingPage/LandingPage"
 
 function Routes( ) {
 
@@ -14,6 +17,7 @@ function Routes( ) {
       <Switch>
         <Route exact path='/'>
           <h1>HOMEPAGE</h1>
+          <LandingPage />
         </Route>
         <Route path="/fruits-vegetables/fresh-fruits" exact>
             <FreshFruits />
@@ -21,22 +25,29 @@ function Routes( ) {
         <Route path='/fruits-vegetables/fresh-vegetables' exact>
           <FreshVegetables />
         </Route>
-        <Route path="/:category/:id">
-          <SingleProduct />
+        <Route path="/staples/atta-flours-sooji" exact>
+            <Flours />
         </Route>
+       
         <Route path='/fruits-vegetables/fresh-fruits'>
           <ProductLayout />
         </Route>
-        {/* <Route path='/fruits-vegetables'>
-          <h1>FruitsVegetables</h1>
-        </Route> */}
+        <Route path="/snacks-branded-foods/biscuits-cookies" exact>
+            <Biscuits />
+        </Route>
         <Route exact path='/dairy-bakery'>
           <ProductLayout mainCat='Dairy & Bakery' />
         </Route>
         <Route path='/dairy-bakery/:id' component={ProductLayout} />
+       
         <Route exact path='/staples'>
           <ProductLayout mainCat='Staples' />
         </Route>
+
+        <Route path="/:category/:id">
+          <SingleProduct />
+        </Route>
+       
         <Route path='/staples/:id' component={ProductLayout} />
         <Route exact path='/home-care'>
           <ProductLayout mainCat='Home Care' />
@@ -45,7 +56,8 @@ function Routes( ) {
         <Route exact path='/snacks-branded-foods'>
           <ProductLayout mainCat='Snacks & Branded Foods' />
         </Route>
-        <Route path='/snacks-branded-foods/:id' component={ProductLayout} />
+        {/* <Route path='/snacks-branded-foods/:id' component={ProductLayout} /> */}
+       
         <Route exact path='/beverages'>
           <ProductLayout mainCat='Beverages' />
         </Route>

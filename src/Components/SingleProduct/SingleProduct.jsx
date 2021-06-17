@@ -7,16 +7,74 @@ import {useDispatch,useSelector} from "react-redux"
 import { singleProduct } from '../../Redux/SingleProduct/action';
 import "../CSS/SingleProduct.css"
 import axios from "axios"
+import Modal from '@material-ui/core/Modal';
+import CheckIcon from '@material-ui/icons/Check';
+import { FaStar } from "react-icons/fa";
+import { Container, Radio, Rating } from "./RatingStyles";
+import styled from 'styled-components';
+import { GetData, Setdata } from '../Utils/localStorage';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  paper: {
+    position: 'absolute',
+    width: 350,
+    height: 30,
+    marginTop:200,
+    backgroundColor: "black",
+    border: '1px solid #000',
+    padding: theme.spacing(2, 4, 3),
+  },
  
 }));
-
+function rand() {
+    return Math.round(Math.random() * 20) - 10;
+  }
+  
+  function getModalStyle() {
+    const top = 50 + rand();
+    const left = 50 + rand();
+  
+    return {
+      top: `${top}%`,
+      left: `${left}%`,
+      transform: `translate(-${top}%, -${left}%)`,
+    };
+  }
+  
+  
 function SingleProduct() {
-    const [number,setNumber] = React.useState("")
+  //Rating
+    const [rate, setRate] = React.useState(0);
+
+    const classes = useStyles();
+
+    //Modal
+    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = React.useState(false);
+  
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    const body = (
+        <div style={modalStyle} className={classes.paper}>
+          <h2 id="simple-modal-title"></h2>
+          <p id="simple-modal-description" 
+          style={{marginTop:-20,backgroundColor:"black",color:"white"}}>
+           <CheckIcon /> Product added to WishList Successfully
+          </p>
+        </div>
+      );
+    
+        //
+    const [wishList,setWishList] = React.useState("")
 
     const {category,id} = useParams()
 
@@ -31,30 +89,35 @@ function SingleProduct() {
     },[])
 
     const {data} = useSelector((state)=>state.singleProduct)
-    console.log(data)
-  const classes = useStyles();
-  //
-const handleTest = () =>{
+    //console.log(data)
 
-    const options = {
-      method: 'POST',
-      url: 'https://nexmo-nexmo-sms-verify-v1.p.rapidapi.com/send-verification-code',
-      params: {brand: 'jiomart', phoneNumber: number},
-      headers: {
-        'x-rapidapi-key': '6fbb0221d8msh9455ae9548b45c4p146732jsn4c32a0214bf3',
-        'x-rapidapi-host': 'nexmo-nexmo-sms-verify-v1.p.rapidapi.com'
-      }
-    };
-    
-    axios.request(options).then(function (response) {
-        console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
-    });
-    }
-    
+  //WishList
+  const handleAdd = () =>{
+    // eslint-disable-next-line array-callback-return
+    const upDate = data.map((item)=>{
+        if(item.id === id){
+         return item
+        } 
+        return undefined
+    })
+    console.log("Hello")
+    Setdata("wishlist",upDate)
+    setWishList(upDate)
+    alert("Product Added to WishList Successfully")
+  }
+
   return (
+
     <div className={classes.root}>
+              <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+
         {
             data.map((item)=>{
               return  <Grid container spacing={1} key={item.id}>
@@ -74,7 +137,7 @@ const handleTest = () =>{
                             <h3>₹ {item.cost}</h3> 
                             <p className="taxes-text">
                                 Inclusive of all taxes</p> 
-                             <button type="button" className="wishlist">
+                             <button onClick={handleAdd && handleOpen} type="button" className="wishlist">
                              </button>
                           </div>
                           <h6 className="stock-green">In Stock</h6>
@@ -103,8 +166,8 @@ const handleTest = () =>{
                                 <div className="pincode-div">
                                     <img src="https://www.jiomart.com/assets/version162335126993/smartweb/images/icons/location-on.svg" />
                                     <input type="tel" placeholder="Enter Your Pincode" className="input" 
-                                    onChange={(e)=>setNumber(e.target.value)} />
-                                    <button onClick={handleTest}>CHECK</button>
+                                     />
+                                    <button>CHECK</button>
                                 </div>
                            </div>
                             <div className="offers-div">
@@ -161,6 +224,34 @@ const handleTest = () =>{
                         <hr/>
                         <div>
                             <h5>Product Rating</h5>
+        <Container>
+            {[...Array(5)].map((item, index) => {
+             const givenRating = index + 1;
+         return (
+          <label>
+            <Radio
+              type="radio"
+              value={givenRating}
+              onClick={() => {
+                setRate(givenRating);
+                Setdata("rating",givenRating)
+                alert(`Are you sure you want to give ${givenRating} stars ?`);
+                
+              }}
+            />
+            <Rating>
+              <FaStar
+                color={
+                  givenRating < rate || givenRating === rate
+                    ? "#007bff"
+                    : "rgb(192,192,192)"
+                }
+              />
+            </Rating>
+          </label>
+        );
+      })}
+    </Container>
                         </div>
                     </div>
                     

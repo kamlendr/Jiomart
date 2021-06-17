@@ -23,12 +23,12 @@
 } */
 
 
-.App{
+/* .App{
     display: grid;
     grid-template-rows: auto;
     overflow-x: hidden;
 
-}
+} */
 .nav-container{
     display: grid;
     grid-template-rows: auto;

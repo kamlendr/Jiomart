@@ -12,7 +12,7 @@ import { TopCatBar } from './Components';
 // import Routes from './Routes';
 import Routes from "./Components/Routes"
 
-<<<<<<< HEAD
+
 import {
 
  
@@ -24,9 +24,6 @@ import LandingPage from './Components/landingPage/LandingPage';
 
 import { NavBar } from './Components/Navbar/Navbar';
 
-
-=======
->>>>>>> 7a0ff35bb45a5502d5797289b3daa86901f366c8
 function App() {
 
   const [sideBarVisible, setSideBarVisible] = useState(false);

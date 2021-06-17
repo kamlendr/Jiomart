@@ -1,10 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import LandingPage from './landingPage/LandingPage';
-=======
-
-
->>>>>>> 7a0ff35bb45a5502d5797289b3daa86901f366c8
 import { Switch, Route, useParams } from 'react-router-dom';
 import { FreshFruits, Products, ProductLayout } from './index';
 import {SingleProduct} from "./SingleProduct/SingleProduct"
@@ -16,14 +10,6 @@ import {Biscuits} from "./Biscuits/Biscuits"
 import {LandingPage} from "./landingPage/LandingPage"
 import {
   SearchResultPage,
-  FreshFruits,
-  FreshVegetables,
-  Products,
-  ProductLayout,
-  Cart,
-  LoginPage,
-  SingleProductPage,
-  SingleProduct
 } from './index';
 
 
@@ -33,10 +19,6 @@ function Routes({ popUpState }) {
     <div className='contentContainer'>
       <Switch>
         <Route exact path='/'>
-<<<<<<< HEAD
-=======
-          <h1>HOMEPAGE</h1>
->>>>>>> 7a0ff35bb45a5502d5797289b3daa86901f366c8
           <LandingPage />
         </Route>
 
@@ -61,7 +43,9 @@ function Routes({ popUpState }) {
         <Route exact path='/fruits-vegetables'>
           <ProductLayout mainCat='fruits-vegetables' />
         </Route>
-        <Route path='/fruits-vegetables/:id' component={ProductLayout} 
+        <Route path='/fruits-vegetables/:id' component={ProductLayout}>
+          
+          </Route> 
         <Route exact path='/dairy-bakery'>
           <ProductLayout mainCat='dairy-bakery' />
         </Route>

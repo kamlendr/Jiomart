@@ -99,7 +99,7 @@ function SingleProduct() {
 
   const { data } = useSelector((state) => state.singleProduct);
   console.log(data);
-  const classes = useStyles();
+  //const classes = useStyles();
   //
   const handleTest = () => {
     const options = {
@@ -122,7 +122,7 @@ function SingleProduct() {
       });
   };
 
-    const {data} = useSelector((state)=>state.singleProduct)
+    //const {data} = useSelector((state)=>state.singleProduct)
     //console.log(data)
 
   //WishList

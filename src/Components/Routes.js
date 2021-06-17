@@ -1,12 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Switch, Route } from 'react-router-dom';
-import { FreshFruits, FreshVegetables, Products, ProductLayout } from './index';
 import LandingPage from './landingPage/LandingPage';
-
-function Routes() {
-=======
-
 import { Switch, Route, useParams } from 'react-router-dom';
 import { FreshFruits, Products, ProductLayout } from './index';
 import {SingleProduct} from "./SingleProduct/SingleProduct"
@@ -16,7 +9,6 @@ import { Cart } from './Cart/cart';
 
 function Routes( ) {
 
->>>>>>> 3518e164482155b0ebf5379aa801d35222354607
   return (
     <div className='contentContainer'>
       <Switch>

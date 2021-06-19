@@ -143,7 +143,7 @@ function SingleProduct({ match }) {
   // };
 
   return (
-    <div className={classes.root}>
+    <div style={{background:"white"}} className={classes.root}>
       <Grid container spacing={1} key={product.id}>
         <Grid item md={5} sm={12} xs={12}>
           {/* <div className='logo-div'>

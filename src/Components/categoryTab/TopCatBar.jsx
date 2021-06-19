@@ -2,12 +2,12 @@ import React from 'react';
 import DropDown from './DropDown';
 import './TopCatBar.css';
 import {categoriesData} from "../../Services/data"
-import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 const TopCatBar = () => {
 
   const mainCategory = categoriesData.categories[0].subCat.map((cat) => {
-    return <DropDown category={cat} />;
+    return <DropDown key={uuidv4()} category={cat} />;
   });
 
   return (

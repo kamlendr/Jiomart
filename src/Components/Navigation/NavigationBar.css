@@ -5,6 +5,11 @@
   font-family: jioMedium;
   
 }
+.navBox a{
+  text-decoration: none;
+  color: white;
+
+}
 .cart-popup{
   display: grid;
   grid-template-columns: auto;
@@ -13,7 +18,8 @@
 .cart-popup p{
   padding: 0 ;
   margin:2px;
-  max-width: 250px;
+  max-width: 200px;
+  
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

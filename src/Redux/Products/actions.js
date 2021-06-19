@@ -2,6 +2,7 @@ import {
   CATEGORY_FAIL,
   CATEGORY_REQUEST,
   CATEGORY_SUCCESS,
+  ORDER_CONFIRMED,
   PRODUCTS_FAIL,
   PRODUCTS_REQUEST,
   PRODUCTS_SUCCESS,
@@ -17,7 +18,7 @@ export const getProducts =
   (sort, mainCat = '', cat, types, brands, price, currentPage) =>
   async (dispatch) => {
     const fetchProducts = axios.create({
-      baseURL: 'http://localhost:3004',
+      baseURL: 'https://kanthuserver.herokuapp.com/',
       method: 'get',
       params: {
         _sort: sort.property,
@@ -54,7 +55,9 @@ export const getCategoryDetails = (payload) => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_REQUEST });
 
-    const { data } = await axios.get('http://localhost:3004/categories');
+    const { data } = await axios.get(
+      'https://kanthuserver.herokuapp.com/categories'
+    );
 
     dispatch({
       type: CATEGORY_SUCCESS,
@@ -68,15 +71,13 @@ export const getCategoryDetails = (payload) => async (dispatch) => {
   }
 };
 
-
 export const searchProducts =
-  ( query,sort,currentPage) =>
-  async (dispatch) => {
+  (query, sort, currentPage) => async (dispatch) => {
     const fetchProducts = axios.create({
-      baseURL: 'http://localhost:3004',
+      baseURL: 'https://kanthuserver.herokuapp.com/',
       method: 'get',
       params: {
-        q:query,
+        q: query,
         _sort: sort.property,
         _order: sort.order,
         _limit: 12,
@@ -86,7 +87,7 @@ export const searchProducts =
     try {
       dispatch({ type: SEARCH_REQUEST });
 
-      const response =await fetchProducts('/products');
+      const response = await fetchProducts('/products');
 
       dispatch({
         type: SEARCH_SUCCESS,
@@ -100,12 +101,19 @@ export const searchProducts =
     }
   };
 export const updateCart = (payload) => {
-  return payload.quantity!==0 ?{
-    type:UPDATE_CART,
-    payload: payload
-  } :{
-    type:REMOVE_FROM_CART,
-    payload: payload.product.id
-  } 
+  if (payload === 'order-confirmed') {
+    return {
+      type: ORDER_CONFIRMED,
+    };
+  }
 
-}
+  return payload.quantity !== 0
+    ? {
+        type: UPDATE_CART,
+        payload: payload,
+      }
+    : {
+        type: REMOVE_FROM_CART,
+        payload: payload.product.id,
+      };
+};

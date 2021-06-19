@@ -12,7 +12,7 @@ const Logo = () => {
 		  y='0px'
 		  style={{ maxWidth: '23vw', width: 'calc(109px)' }}
 		  viewBox='0 0 138.634 46.255'
-		  enable-background='new 0 0 138.634 46.255'
+		  enableBackground='new 0 0 138.634 46.255'
 		  xmlSpace='preserve'
 		>
 		  <g>
@@ -101,9 +101,3 @@ const Logo = () => {
 };
 
 export default Logo;
-const logoStyle = {
-  width: '109px',
-  '@media only screen and (maxWidth:600px)': {
-    width: '30px',
-  },
-};

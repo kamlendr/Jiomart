@@ -20,11 +20,11 @@ const singleGetFailure = (payload) =>{
     }
 }
 
-export const singleProduct = (category,id) => (dispatch)=>{
+export const singleProduct = (id) => (dispatch)=>{
     dispatch(singleGetRequest())
-    axios.get(`https://kanthuserver.herokuapp.com/items?category=${category}&id=${id}`)
+    axios.get(`https://kanthuserver.herokuapp.com/products?id=${id}`)
     .then((res)=>{
-        dispatch(singleGetSuccess(res.data))
+        dispatch(singleGetSuccess(res.data[0]))
     })
     .catch((err)=>{
         dispatch(singleGetFailure(err))

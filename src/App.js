@@ -1,32 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { useEffect } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import './App.css';
-import { TopCatBar, SideNavBar, Routes } from './Components';
-import { Context } from './Components/Context/ContextProvider';
-import NavigationBar from './Components/Navigation/NavigationBar';
-import { NavBar } from './Components/Navbar/Navbar';
-
-
-// import Routes from './Routes';
-//import Routes from "./Components/Routes"
-
-
-//import { SideNavBar } from './Components';
-import { Footer1 } from "./Components/Footer/Footer"
-import LandingPage from './Components/landingPage/LandingPage';
+import { TopCatBar, SideNavBar, Routes, NavigationBar,Context ,Footer1} from './Components';
 
 function App() {
-
   const [sideBarVisible, setSideBarVisible] = useState(false);
   const { setcartPopUpVisible } = useContext(Context);
 
   useEffect(() => {
-    setcartPopUpVisible(true)
-  }, [setcartPopUpVisible])
+    setcartPopUpVisible(true);
+  }, [setcartPopUpVisible]);
 
   return (
     <div className='App'>
-
       <header className='nav-container'>
         <div className='sticky-nav'>
           <NavigationBar setSideBarVisible={setSideBarVisible} />
@@ -42,12 +27,9 @@ function App() {
       <main>
         <Routes />
       </main>
-      <footer className='footer-container'>footer</footer>
-
-
-
+      
+     
     </div>
   );
-
 }
 export default App;

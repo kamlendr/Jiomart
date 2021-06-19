@@ -1,4 +1,4 @@
-import { REMOVE_FROM_CART, UPDATE_CART } from './action_types';
+import { ORDER_CONFIRMED, REMOVE_FROM_CART, UPDATE_CART } from './action_types';
 import { omit,uniq } from 'lodash';
 
 const initialState = JSON.parse(localStorage.getItem("cart")) || {
@@ -27,6 +27,13 @@ export const cartReducer = (state = initialState, action) => {
       };
       localStorage.setItem('cart', JSON.stringify(data2));
       return data2;
+    case ORDER_CONFIRMED:
+      let data3 = {
+        cartItems:{},
+        additionHistory: []
+      };
+      localStorage.setItem('cart', JSON.stringify(data3));
+      return data3;
     default:
       return state;
   }

@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Col, Pagination, Row } from 'antd';
-import parse from 'parse-link-header';
+import { Col, Pagination, Row, Spin, Space } from 'antd';
+import { v4 as uuidv4 } from 'uuid';
 import OfferBg from '../Icons/OfferBg';
 import VegIndicator from '../Icons/VegIndicator';
 import DefaultTitleImage from '../Icons/DefaultTitleImage';
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom';
 
-// var parsed = parse(linkHeader);
 import {
   getProducts,
   getCategoryDetails,
@@ -15,8 +14,7 @@ import {
 } from '../Redux/Products/actions';
 import { SortBar } from './index';
 import { categoriesData } from '../Services/data';
-import '../App.css';
-import './ProductLayout.css';
+import './CSS/ProductLayout.css';
 import { SideCatBar, JioButton, PlusMinusBtn } from './index';
 import axios from 'axios';
 import { Context } from './Context/ContextProvider';
@@ -44,10 +42,6 @@ const ProductLayout = ({ match, mainCat }) => {
   const cart = useSelector((store) => store.cart.cartItems);
   const { setcartPopUpVisible } = useContext(Context);
 
-  // const mainCategory = categoriesData.categories[0].subCat.map((cat, ind) => {
-  //   const subCats = cat.subSubCat.map((subCat) => {
-  //     return <li>{subCat.name} </li>;
-  //   });
   const [priceRange, setPriceRange] = useState([]);
   const [types, setTypes] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -57,13 +51,12 @@ const ProductLayout = ({ match, mainCat }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const dynamicLink = match && match.params.id;
-  console.log(mainCat)
-  console.log(dynamicLink);
   const dispatch = useDispatch();
-  const { products, paginateData } = useSelector((state) => ({
-    products: state.state.products,
-    paginateData: state.state.paginateData,
-    cart: state.cart,
+  const { products, paginateData, loading } = useSelector((store) => ({
+    products: store.state.products,
+    paginateData: store.state.paginateData,
+    cart: store.cart,
+    loading: store.state.loading,
   }));
   useEffect(() => {
     dispatch(
@@ -75,7 +68,7 @@ const ProductLayout = ({ match, mainCat }) => {
 
   useEffect(() => {
     const fetchProducts = axios.create({
-      baseURL: 'http://localhost:3004',
+      baseURL: 'https://kanthuserver.herokuapp.com/',
       method: 'get',
       params: {
         cat: dynamicLink,
@@ -85,7 +78,7 @@ const ProductLayout = ({ match, mainCat }) => {
       },
     });
     function getHighestProductPrice() {
-      return fetchProducts('/products', { params: { _order: 'desc' } });
+      return fetchProducts('/products', { params: { _order: 'DESC' } });
     }
     function getLowestProductPrice() {
       return fetchProducts('/products', { params: { _order: 'asc' } });
@@ -116,7 +109,7 @@ const ProductLayout = ({ match, mainCat }) => {
 
   return (
     <div className='content-container'>
-      <section className='bread-crumbs'>breadcrumbs</section>
+      {/* <section className='bread-crumbs'>breadcrumbs</section> */}
       <section className='side-bar'>
         <SideCatBar
           subCat={dynamicLink}
@@ -131,10 +124,8 @@ const ProductLayout = ({ match, mainCat }) => {
       </section>
       <section>
         <div className='products-display'>
-          {dynamicLink && <h1>{dynamicLink}</h1>}
-          {categoryImageFilter(dynamicLink)[0] &&
-          categoryImageFilter(dynamicLink)[0].image &&
-          (
+          {(categoryImageFilter(dynamicLink)[0] &&
+            categoryImageFilter(dynamicLink)[0].image && (
               <section>
                 <img
                   src={
@@ -145,58 +136,52 @@ const ProductLayout = ({ match, mainCat }) => {
                   alt='Category Title'
                 />
               </section>
-            ) || (
-              <section>
-                {
-                  dynamicLink && <DefaultTitleImage titleText={dynamicLink}/>
-                }
-                
-              </section>
-            )
-            }
+            )) || (
+            <section>
+              {dynamicLink && <DefaultTitleImage titleText={dynamicLink} />}
+            </section>
+          )}
           <section>
             <SortBar sortProcess={setSort} />
           </section>
-          <section>
-            <h1>All Products</h1>
-            <div className='p-cards'>
-              {products.map((product) => {
-                return (
-                  <div className='card'>
-                      <Link to={`/${product.id}`} >
-                      <section
-                      className="card-img-section"
-                      >
-                        {product.discount ? (
+          {loading ? (
+            <div style={{textAlign: "center"}}>
+              <Spin size='large' />
+            </div>
+          ) : (
+            <section>
+              <h1>All Products</h1>
+              <div className='p-cards'>
+                {products.map((product) => {
+                  return (
+                    <div key={uuidv4()} className='card'>
+                      <Link to={`/groceries/${product.id}`}>
+                        <section className='card-img-section'>
+                          {product.discount ? (
+                            <span>
+                              <OfferBg
+                                discount={product.discount}
+                                style={{ width: '40px' }}
+                              />
+                            </span>
+                          ) : (
+                            <span>
+                              <p style={{ opacity: 0 }}>ypuii</p>
+                            </span>
+                          )}
+                          <img src={product.image} alt='pImage' />
                           <span>
-                            <OfferBg
-                              discount={product.discount}
-                              style={{width:"40px" }}
-                            />
+                            <VegIndicator />
                           </span>
-                        ) : (
-                          <span>
-                            <p style={{opacity:0}} >ypuii</p>
-                          </span>
-                        )}
-                        <img
-                          src={product.image}
-                          alt='pImage'
-                          style={{
-                            textAlign: 'center',
-                            alignSelf: 'flex-end',
-                            width:'150px'
-                          }}
-                        />
-                        <span>
-                          <VegIndicator />
-                        </span>
-                      </section>
-                        </Link>
-                      <section className="card-detail-section" >
-                        <section>
-                          <p>{product.title}</p>
                         </section>
+                      </Link>
+
+                      <section className='card-detail-section'>
+                        <Link to={`/groceries/${product.id}`}>
+                          <section>
+                            <p>{product.title}</p>
+                          </section>
+                        </Link>
                         <section>
                           <p>
                             <span style={{ fontSize: '16px' }}>
@@ -218,13 +203,13 @@ const ProductLayout = ({ match, mainCat }) => {
                             </span>
                           </p>
                         </section>
-                        
-                        <section className="btn-section">
+
+                        <section className='btn-section'>
                           {product.id in cart ? (
                             <PlusMinusBtn product={product} />
                           ) : (
                             <span
-                            // style={{alignSelf:"flex-start"}}
+                              // style={{alignSelf:"flex-start"}}
                               onClick={() => {
                                 setcartPopUpVisible(true);
                                 dispatch(updateCart({ product, quantity: 1 }));
@@ -236,11 +221,11 @@ const ProductLayout = ({ match, mainCat }) => {
                         </section>
                       </section>
                     </div>
-                  
-                );
-              })}
-            </div>
-          </section>
+                  );
+                })}
+              </div>
+            </section>
+          )}
         </div>
         <div style={{ padding: '12px' }}>
           <Row gutter={12}>

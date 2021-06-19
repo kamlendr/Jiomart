@@ -12,7 +12,7 @@ const VegIndicator = () => {
       width='20px'
       height='20px'
       viewBox='0 0 196 196'
-      enable-background='new 0 0 196 196'
+      enableBackground='new 0 0 196 196'
       xmlSpace='preserve'
     >
       {' '}

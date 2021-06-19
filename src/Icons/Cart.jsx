@@ -7,7 +7,7 @@ const Cart = () => {
       width='25'
       viewBox='0 0 22 16'
     >
-      <g fill='none' fill-rule='evenodd'>
+      <g fill='none' fillRule='evenodd'>
         <path d='M0 0H24V24H0z' />
         <path
           fill='#FFF'

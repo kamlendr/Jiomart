@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Col, Pagination, Row } from 'antd';
-import parse from 'parse-link-header';
+import { v4 as uuidv4 } from 'uuid';
 import OfferBg from '../Icons/OfferBg';
 import VegIndicator from '../Icons/VegIndicator';
 import DefaultTitleImage from '../Icons/DefaultTitleImage';
+import {Link} from "react-router-dom"
 
-// var parsed = parse(linkHeader);
 import {
-  getProducts,
-  getCategoryDetails,
   updateCart,
   searchProducts,
 } from '../Redux/Products/actions';
@@ -18,7 +16,6 @@ import { categoriesData } from '../Services/data';
 import '../App.css';
 import './SearchResultPage.css';
 import { SideCatBar, JioButton, PlusMinusBtn } from './index';
-import axios from 'axios';
 import { Context } from './Context/ContextProvider';
 
 function categoryImageFilter(id) {
@@ -44,10 +41,6 @@ const SearchResultPage = ({ match, mainCat,  history, location }) => {
   const cart = useSelector((store) => store.cart.cartItems);
   const { setcartPopUpVisible } = useContext(Context);
 
-  // const mainCategory = categoriesData.categories[0].subCat.map((cat, ind) => {
-  //   const subCats = cat.subSubCat.map((subCat) => {
-  //     return <li>{subCat.name} </li>;
-  //   });
   const [priceRange, setPriceRange] = useState([]);
   const [types, setTypes] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -71,7 +64,7 @@ const SearchResultPage = ({ match, mainCat,  history, location }) => {
 
   return (
     <div className='content-container'>
-      <section className='bread-crumbs'>breadcrumbs</section>
+      {/* <section className='bread-crumbs'>breadcrumbs</section> */}
       <section className='side-bar'>
         <SideCatBar
           subCat={dynamicLink}
@@ -86,7 +79,6 @@ const SearchResultPage = ({ match, mainCat,  history, location }) => {
       </section>
       <section>
         <div className='products-display'>
-          {dynamicLink && <h1>{dynamicLink}</h1>}
           {categoryImageFilter(dynamicLink)[0] &&
           categoryImageFilter(dynamicLink)[0].image &&
           (
@@ -117,7 +109,8 @@ const SearchResultPage = ({ match, mainCat,  history, location }) => {
             <div className='p-cards'>
               {products.map((product) => {
                 return (
-                  <div className='card'>
+                  <div key={uuidv4()} className='card'>
+                    <Link to={`/groceries/${product.id}`}>
                     <section
                     className="card-img-section"
                     >
@@ -145,11 +138,12 @@ const SearchResultPage = ({ match, mainCat,  history, location }) => {
                         <VegIndicator />
                       </span>
                     </section>
-
+                    </Link>
                     <section className="card-detail-section" >
+                    <Link to={`/groceries/${product.id}`}>
                       <section>
                         <p>{product.title}</p>
-                      </section>
+                      </section> </Link>
                       <section>
                         <p>
                           <span style={{ fontSize: '16px' }}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleProductPage = () => {
+const SingleProductPage = ({match}) => {
   return (
     <div className='singleProductContainer'>
       <section>

@@ -8,7 +8,7 @@ const PlusButton = ({size}) => {
       height={size}
       viewBox='0 0 32 32'
     >
-      <g fill='none' fill-rule='evenodd'>
+      <g fill='none' fillRule='evenodd'>
         <circle cx='16' cy='16' r='16' fill='#008ECC' />
         <g>
           <path d='M0 0H20V20H0z' transform='translate(6 6)' />

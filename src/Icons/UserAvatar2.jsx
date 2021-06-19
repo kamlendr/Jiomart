@@ -10,7 +10,7 @@ const UserAvatar2 = () => {
       width='22px'
       height='22px'
       viewBox='0 0 94 94'
-      enable-background='new 0 0 94 94'
+      enableBackground='new 0 0 94 94'
       xmlSpace='preserve'
     >
       <g>

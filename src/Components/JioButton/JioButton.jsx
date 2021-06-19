@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSpring, animated } from '@react-spring/web';
 import MinusButton from '../../Icons/MinusButton';
 import PlusButton from '../../Icons/PlusButton';
 import './JioButton.css';
@@ -28,12 +27,11 @@ export const PlusMinusBtn = ({ product }) => {
 };
 
 export const JioButton = ({ showInfo, myProduct }) => {
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
-    <animated.div style={props}>
+    <div >
       <div className='btnStyle'>
         <span className="btnText">Add to Cart</span> <PlusButton size={25} />
       </div>
-    </animated.div>
+    </div>
   );
 };

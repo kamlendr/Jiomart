@@ -51,6 +51,19 @@
   align-items: flex-start;
   height: 150px;
 }
+.card-img-section > img{
+  width: 60%;
+transition: .3s ease;
+  height: auto;
+}
+.card-img-section > img:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+
+
+
 
 .mrp {
   font-family: jioLight;
@@ -60,6 +73,10 @@
 }
 .card-detail-section{
   align-self: end;
+  padding-top: 10px;
+  
+}.card-detail-section a{
+  color: black;
 }
 @media only screen and (max-width: 600px) {
   .p-cards {
@@ -69,11 +86,9 @@
     grid-template-columns: 44% 53%;
     padding: 18px 1px;
     border: 0;
-    border-bottom: 0.1px solid rgba(0, 0, 0, 0.452);
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.452);
     border-radius: 0;
     grid-gap: 4%;
-
-
   }
   .card-img-section > span:nth-of-type(1){
     margin-right: -30px;

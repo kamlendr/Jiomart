@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Input, AutoComplete, section, Row, Popover, Button } from 'antd';
+import {Link, useHistory} from "react-router-dom"
 import 'antd/dist/antd.css';
 import Logo from '../../Icons/Logo';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import UserAvatar2 from '../../Icons/UserAvatar2';
+import UserAvatar from '../../Icons/UserAvatar';
 import BurgerMenu from '../../Icons/BurgerMenu';
 import './NavigationBar.css';
 import { SearchBar } from '../index';
@@ -21,6 +23,7 @@ const NavigationBar = ({ setSideBarVisible }) => {
     latestTwoAdditions: [],
     savings: 0,
   });
+  const history =useHistory()
   useEffect(() => {
     const timeOutID= setTimeout(() => setcartPopUpVisible(false), 4000)
     return () => {
@@ -28,7 +31,8 @@ const NavigationBar = ({ setSideBarVisible }) => {
     };
   }, [cartPopUpVisible, setcartPopUpVisible]);
 
-  const { cart, cartHistory } = useSelector((store) => ({
+  const { cart, cartHistory,isAuth } = useSelector((store) => ({
+    isAuth:store.Auth.isAuth,
     cart: store.cart.cartItems,
     cartHistory: store.cart.additionHistory,
   }));
@@ -100,14 +104,14 @@ const NavigationBar = ({ setSideBarVisible }) => {
             </p>
           )}
         </div>
-        {/* <div style={{ width: '50px' }}></div> */}
-        <button>PROCEED TO CART</button>
+        <div style={{ width: '30px' }}></div>
+        <button onClick={()=>history.push("/checkout/cart")} >PROCEED TO CART</button>
       </div>
     </div>
   );
   const popupTitle = (
     <div
-      classname='popupTitle'
+      className='popupTitle'
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -136,8 +140,13 @@ const NavigationBar = ({ setSideBarVisible }) => {
           <SearchBar />
         </section>
         <section className='userInfo'>
-          <UserAvatar2 />
-          <span className='cart-text'>Sign in / Sign Up</span>
+         { !isAuth ?  <>
+            <UserAvatar2 />
+            <Link to="/login" className='cart-text'>Sign in / Sign Up</Link>
+          </> : <>
+            <UserAvatar />
+            <Link to="/login" className='cart-text'>Eve Holt</Link>
+          </> }
         </section>
         <Popover
           content={content}
@@ -147,27 +156,29 @@ const NavigationBar = ({ setSideBarVisible }) => {
           overlayStyle={{ paddingTop: '-60px', position: 'fixed' }}
           title={popupTitle}
         >
-          <section className='cart' onMouseEnter={()=>setcartPopUpVisible(true)}>
-            <div>
-              {cartDetails.totalItems > 0 && (
-                <div
-                  style={{
-                    marginBottom: '-5px',
-                    background: 'red',
-                    padding: 0,
-                    textAlign: 'center',
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '10px',
-                  }}
-                >
-                  {cartDetails.totalItems}
-                </div>
-              )}
-              <ShoppingCartIcon />
-            </div>
-            <span className='cart-text'>Cart</span>
-          </section>
+            <section className='cart' onMouseEnter={()=>setcartPopUpVisible(true)}>
+          
+              <div>
+                {cartDetails.totalItems > 0 && (
+                  <div
+                    style={{
+                      marginBottom: '-5px',
+                      background: 'red',
+                      padding: 0,
+                      textAlign: 'center',
+                      width: '20px',
+                      height: '20px',
+                      borderRadius: '10px',
+                    }}
+                  >
+                    {cartDetails.totalItems}
+                  </div>
+                )}<Link to="/checkout/cart">
+                <ShoppingCartIcon /></Link>
+              </div><Link to="/checkout/cart">
+              <span className='cart-text'>Cart</span>
+          </Link>
+            </section>
         </Popover>
       </nav>
     </div>

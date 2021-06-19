@@ -1,17 +1,18 @@
 import React from 'react';
-import { Switch, Route, useParams } from 'react-router-dom';
-import { FreshFruits, Products, ProductLayout } from './index';
-import {SingleProduct} from "./SingleProduct/SingleProduct"
-import {FreshVegetables} from "./Vegetables/Vegetables"
-import {LoginPage} from "./LoginPage/LoginPage"
-import { Cart } from './Cart/cart';
-import {Flours} from "./Flours/Flours"
-import {Biscuits} from "./Biscuits/Biscuits"
-import {LandingPage} from "./landingPage/LandingPage"
+
+import { Switch, Route } from 'react-router-dom';
 import {
   SearchResultPage,
+  FreshFruits,
+  FreshVegetables,
+  Products,
+  ProductLayout,
+  LandingPage,
+  Checkout,
+  LoginPage,
+  SingleProductPage,
+  SingleProduct
 } from './index';
-
 
 function Routes({ popUpState }) {
 
@@ -19,52 +20,27 @@ function Routes({ popUpState }) {
     <div className='contentContainer'>
       <Switch>
         <Route exact path='/'>
-          <LandingPage />
-        </Route>
-
-        <Route path="/fruits-vegetables/fresh-fruits" exact>
-            <FreshFruits />
-        </Route>
-        <Route path='/fruits-vegetables/fresh-vegetables' exact>
-          <FreshVegetables />
-        </Route>
-        <Route path="/staples/atta-flours-sooji" exact>
-            <Flours />
-        </Route>
-       
-        <Route path='/fruits-vegetables/fresh-fruits'>
-          <ProductLayout />
-        </Route>
-        <Route path="/snacks-branded-foods/biscuits-cookies" exact>
-            <Biscuits />
+          <LandingPage/>
         </Route>
 
         <Route path='/search/:id' component={SearchResultPage} />
         <Route exact path='/fruits-vegetables'>
           <ProductLayout mainCat='fruits-vegetables' />
         </Route>
-        <Route path='/fruits-vegetables/:id' component={ProductLayout}>
-          
-          </Route> 
+        <Route path='/fruits-vegetables/:id' component={ProductLayout} />
+
         <Route exact path='/dairy-bakery'>
           <ProductLayout mainCat='dairy-bakery' />
         </Route>
         <Route path='/dairy-bakery/:id' component={ProductLayout} />
-       
         <Route exact path='/staples'>
           <ProductLayout mainCat='staples' />
         </Route>
-
-        <Route path="/:category/:id">
-          <SingleProduct />
-        </Route>
-       
         <Route path='/staples/:id' component={ProductLayout} />
         <Route exact path='/snacks-branded-foods'>
           <ProductLayout mainCat='snacks-branded-foods' />
         </Route>
-        {/* <Route path='/snacks-branded-foods/:id' component={ProductLayout} /> */}
-       
+        <Route path='/snacks-branded-foods/:id' component={ProductLayout} />
         <Route exact path='/beverages'>
           <ProductLayout mainCat='beverages' />
         </Route>
@@ -86,14 +62,12 @@ function Routes({ popUpState }) {
           <ProductLayout mainCat='home-kitchen' />
         </Route>
         <Route path='/home-kitchen/:id' component={ProductLayout} />
-        <Route path='/:id' component={SingleProduct} />
+        <Route path='/groceries/:id' component={SingleProduct} />
 
-        <Route exact path='/signIn'>
+        <Route exact path='/login'>
           <LoginPage/>
         </Route>
-        <Route exact path='/cart'>
-         <Cart/>
-        </Route>
+        <Route exact path='/checkout/:id' component={Checkout} />
       </Switch>
     </div>
   );

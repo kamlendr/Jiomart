@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './SideNavBar.css';
 import CloseIcon from '@material-ui/icons/Close';
 import UserAvatar from '../../Icons/UserAvatar';
+import { useSelector } from 'react-redux';
 
 const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
+  const isAuth = useSelector((store) => store.Auth.isAuth);
   let closeBar = () => {
     setSideBarVisible(false);
   };
@@ -17,12 +18,12 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
         <section className='sideBarsects'>
           <div>
             <UserAvatar />
-            <Link>Hello, Sign In</Link>
+            <Link to="/login" onClick={closeBar}> { isAuth? "Eve Holt": 'Hello, Sign In'}</Link>
             <CloseIcon onClick={closeBar} style={{ cursor: 'pointer' }} />
           </div>
           <div>
             <Link onClick={closeBar}> Account </Link>
-            <Link onClick={closeBar}> Orders </Link>
+            <Link to="/checkout/cart" onClick={closeBar}> Orders </Link>
           </div>
         </section>
 
@@ -30,7 +31,7 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
           <section className='sideBarsects'>
             <ul>
               <li>
-                <Link onClick={closeBar}>Home</Link>
+                <Link to="/" onClick={closeBar}>Home</Link>
               </li>
               <li>
                 <Link onClick={closeBar}>Shop by Category</Link>
@@ -69,34 +70,32 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
           <section className='sideBarsects'>
             <div className='hmenu_contact'>
               <h1 style={{ textAlign: 'left' }}>Contact Us</h1>
-              <span class='mail_txt'>
+              <span className='mail_txt'>
                 WhatsApp us :
                 <a
                   href='https://wa.me/917000370003?text=Hi'
-                  target='_blank'
-                  rel='noopener'
                 >
                   70003 70003
                 </a>
               </span>
               <br />
-              <span class='mail_txt'>
-                <span class='mail_txt'>
+              <span className='mail_txt'>
+                <span className='mail_txt'>
                   Call Us :
-                  <a href='tel:1800 890 1222' target='_blank' rel='noopener'>
+                  <a href='tel:1800 890 1222' >
                     1800 890 1222
                   </a>
                   <br />
                 </span>
               </span>
               <p>6:00 AM to 8:00 PM, 365 days</p>
-              <p class='textmsg1'>
+              <p className='textmsg1'>
                 Please note that you are accessing the BETA Version of
                 <a href='https://www.jiomart.com/' style={{ color: '#008ecc' }}>
                   www.jiomart.com
                 </a>
               </p>
-              <p class='textmsg2'>
+              <p className='textmsg2'>
                 Should you encounter any bugs, glitches, lack of functionality,
                 delayed deliveries, billing errors or other problems on the beta
                 website, please email us on
@@ -107,8 +106,7 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
               <h1 style={{textAlign:"left"}}>Download App</h1>
               <a
                 href='https://play.google.com/store/apps/details?id=com.jpl.jiomart'
-                target='_blank'
-                rel='noopener'
+                
               >
                 <img
                   src='https://www.jiomart.com/images/cms/wysiwyg/app-icons/play_store.png'
@@ -117,8 +115,7 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
               </a>
               <a
                 href='https://apps.apple.com/in/app/jiomart/id1522085683'
-                target='_blank'
-                rel='noopener'
+               
               >
                 <img
                   src='https://www.jiomart.com/images/cms/wysiwyg/app-icons/ios_store.png'

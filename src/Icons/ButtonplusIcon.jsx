@@ -3,7 +3,7 @@ import React from 'react';
 const ButtonplusIcon = () => {
   return (
     <svg width='16' height='16' viewBox='0 0 16 16'>
-      <g fill='none' fill-rule='evenodd'>
+      <g fill='none' fillRule='evenodd'>
         <path d='M0 0H16V16H0z' />
         <path
           fill='#FFF'

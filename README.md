@@ -23,7 +23,7 @@ The App is an ecommerce platform intended to serve the customers all over India.
 - Single Product Page containing detailed infomation shows up on clicking a product card.
 - Cart Page shows every item in the cart with a bill alongside.
 - Payment Page shows the options available to make payment.
-- Responsive on the shopping page, Cart and Payment components.
+- Responsiveness on the shopping page, Cart and Payment components.
 - A SideBar to assist navigation on small screen devices.
   
 ## Libraries Used

@@ -10,7 +10,6 @@ import {JioButton,PlusMinusBtn} from './JioButton/JioButton';
 import ContextProvider from './Context/ContextProvider';
 import Checkout from "./Checkout/Checkout"
 import {LoginPage} from "./LoginPage/LoginPage" 
-import SingleProductPage from './SingleProductPage/SingleProductPage';
 import { SingleProduct } from './SingleProduct/SingleProduct';
 import NavigationBar from './Navigation/NavigationBar';
 import { Context } from './Context/ContextProvider';
@@ -25,7 +24,6 @@ export {
   NavigationBar,
   Context,
   SingleProduct,
-  SingleProductPage,
   Checkout,
   LoginPage,
   ContextProvider,

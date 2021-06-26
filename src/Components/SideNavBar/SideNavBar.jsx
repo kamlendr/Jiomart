@@ -22,7 +22,7 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
             <CloseIcon onClick={closeBar} style={{ cursor: 'pointer' }} />
           </div>
           <div>
-            <Link onClick={closeBar}> Account </Link>
+            <Link to="/login" onClick={closeBar}> Account </Link>
             <Link to="/checkout/cart" onClick={closeBar}> Orders </Link>
           </div>
         </section>
@@ -34,7 +34,7 @@ const SideNavBar = ({ sideBarVisible, setSideBarVisible }) => {
                 <Link to="/" onClick={closeBar}>Home</Link>
               </li>
               <li>
-                <Link onClick={closeBar}>Shop by Category</Link>
+                <Link  to="/categories" onClick={closeBar}>Shop by Category</Link>
               </li>
               <li>
                 <Link onClick={closeBar}>My List</Link>

@@ -1,7 +1,3 @@
-@font-face {
-    font-family: jioLight;
-    src: url('../../Fonts/JioTypeW04-Light.woff2');
-}
 .colllapseContainer{
 font-family: jioLight;
 width: 250px;
@@ -42,4 +38,11 @@ hr{
     display:inline-block;
     opacity:1;
 
+}
+@media only screen and (max-width:600px) {
+    .colllapseContainer{
+        width: 100%
+        }
+        
+    
 }

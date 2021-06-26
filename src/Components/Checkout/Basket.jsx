@@ -1,11 +1,12 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './Basket.css';
 import { PlusMinusBtn } from '../index';
-const Basket = ({ cartDetails }) => {
 
+const Basket = ({ cartDetails }) => {
   const cards = cartDetails.products.map((product) => {
     return (
-      <div className='cart-cards'>
+      <div key={uuidv4()} className='cart-cards'>
         <div>
           <img src={product.image} alt='pr-i' />
         </div>

@@ -3,15 +3,12 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import {
   SearchResultPage,
-  FreshFruits,
-  FreshVegetables,
-  Products,
   ProductLayout,
   LandingPage,
   Checkout,
   LoginPage,
-  SingleProductPage,
-  SingleProduct
+  SingleProduct,
+  CatBarStandAlone
 } from './index';
 
 function Routes({ popUpState }) {
@@ -63,6 +60,7 @@ function Routes({ popUpState }) {
         </Route>
         <Route path='/home-kitchen/:id' component={ProductLayout} />
         <Route path='/groceries/:id' component={SingleProduct} />
+        <Route path='/categories' component={CatBarStandAlone} />
 
         <Route exact path='/login'>
           <LoginPage/>

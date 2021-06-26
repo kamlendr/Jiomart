@@ -1,5 +1,4 @@
 import { TopCatBar } from './categoryTab';
-import { NavBar } from './Navbar/Navbar';
 import SideNavBar from './SideNavBar/SideNavBar';
 import { SideCatBar } from './categoryTab';
 import Routes from './Routes';
@@ -17,8 +16,10 @@ import NavigationBar from './Navigation/NavigationBar';
 import { Context } from './Context/ContextProvider';
 import { Footer1 } from './Footer/Footer';
 import { LandingPage } from './landingPage/LandingPage';
+import CatBarStandAlone from './categoryTab/CatBarStandAlone';
 
 export {
+  CatBarStandAlone,
   LandingPage,
   Footer1,
   NavigationBar,
@@ -34,7 +35,6 @@ export {
   SearchResultPage ,
   Routes,
   TopCatBar,
-  NavBar,
   SideNavBar,
   SideCatBar,
   ProductLayout,

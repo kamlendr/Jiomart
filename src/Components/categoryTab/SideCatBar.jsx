@@ -79,7 +79,11 @@ const SideCatBar = ({
     const subCats = cat.subSubCat.map((subCat) => {
       let subCatName = subCat.name.replace(/ & |, | /g, '-').toLowerCase();
       return (
-        <Link key={uuidv4()} style={{ color: 'black' }} to={`/${catName}/${subCatName}`}>
+        <Link
+          key={uuidv4()}
+          style={{ color: 'black' }}
+          to={`/${catName}/${subCatName}`}
+        >
           <li>{subCat.name} </li>
         </Link>
       );

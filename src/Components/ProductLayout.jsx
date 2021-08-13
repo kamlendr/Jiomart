@@ -59,10 +59,13 @@ const ProductLayout = ({ match, mainCat }) => {
     loading: store.state.loading,
   }));
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     dispatch(
       getProducts(sort, mainCat, dynamicLink, types, brands, price, currentPage)
     );
-
+    window.scrollTo(0, 0);
     return () => {};
   }, [dispatch, sort, mainCat, dynamicLink, types, brands, price, currentPage]);
 
@@ -145,7 +148,7 @@ const ProductLayout = ({ match, mainCat }) => {
             <SortBar sortProcess={setSort} />
           </section>
           {loading ? (
-            <div style={{textAlign: "center"}}>
+            <div style={{ textAlign: 'center' }}>
               <Spin size='large' />
             </div>
           ) : (

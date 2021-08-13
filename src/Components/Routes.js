@@ -10,11 +10,13 @@ import {
   SingleProduct,
   CatBarStandAlone
 } from './index';
+import ScrollToTop from './ScrollToTop';
 
 function Routes({ popUpState }) {
 
   return (
     <div className='contentContainer'>
+      <ScrollToTop />
       <Switch>
         <Route exact path='/'>
           <LandingPage/>

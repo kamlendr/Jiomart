@@ -57,7 +57,7 @@ const SearchResultPage = ({ match, mainCat,  history, location }) => {
   }));
   useEffect(() => {
     dispatch(searchProducts(dynamicLink, sort, currentPage));
-
+    window.scrollTo(0, 0);
     return () => {};
   }, [dispatch, sort, dynamicLink, currentPage]);
 

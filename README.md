@@ -39,4 +39,13 @@ The App is an ecommerce platform intended to serve the customers all over India.
 - Lodash
 - Redux Thunk
 - Antd
+## Landing Page
+![jiomart](https://user-images.githubusercontent.com/36612181/128313495-8736a850-5ae4-4525-acb4-45b2481d09b8.png)
+
+## Product Page
+![productPage](https://user-images.githubusercontent.com/36612181/128314666-4843bded-5c4d-4ec1-9e13-fd5db940bde4.jpg)
+
+## Cart Page
+![cartpage](https://user-images.githubusercontent.com/36612181/128314962-9e2b67d4-e5ba-4f5e-a5bf-2a38a3591dea.jpg)
+
 

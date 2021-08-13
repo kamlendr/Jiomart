@@ -20,7 +20,7 @@ function LandingPage() {
             <Banner url={"https://www.jiomart.com/images/cms/aw_rbslider/slides/1621437459_ncpunemum.jpg"} />
             <Banner url={"https://www.jiomart.com/images/cms/aw_rbslider/slides/1611339553_free_header.jpg"} />
 
-            <p style={{ marginLeft: "5%", padding: "20px 16px 1px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Shop from Top Categories</p>
+            <p className="heardertext" style={{ marginLeft: "5%", padding: "20px 16px 1px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Shop from Top Categories</p>
             <HomeWrapper> <Slidertwo /> </HomeWrapper>
 
             <Banner url={"https://www.jiomart.com/images/cms/aw_rbslider/slides/1623259110_web.jpg"} />
@@ -37,14 +37,14 @@ function LandingPage() {
             </div>
 
             <p style={{ marginLeft: "5%", padding: "8px 16px 16px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Offers on daily essentials</p>
-            <div style={{ width: "90%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <BannerCard color={"#efd6da"} offer={"UP TO 20% OFF"} url={"https://www.jiomart.com/images/category/17/thumb/dals-pulses-20200714.png"} item={"Dal & Pulses"} />
-                <BannerCard color={"#efd6da"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/14/thumb/0-14.png"} item={"Atta, Flours & Sooji"} />
+                <BannerCard itemUrl={"/staples/atta-flours-sooji"} color={"#efd6da"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/14/thumb/0-14.png"} item={"Atta, Flours & Sooji"} />
                 <BannerCard color={"#efd6da"} offer={"UP TO 20% OFF"} url={"https://www.jiomart.com/images/category/18/thumb/0-18.png"} item={"Edibles Oils"} />
                 <BannerCard color={"#efd6da"} offer={"UP TO 10% OFF"} url={"https://www.jiomart.com/images/category/20/thumb/0-20.png"} item={"Salt, Sugar & Jaggery"} />
 
             </div>
-            <div style={{ width: "90%", margin: "auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <BannerCard color={"#efd6da"} offer={"UP TO 15% OFF"} url={"https://www.jiomart.com/images/category/119/thumb/bath-hand-wash-20200714.png"} item={"Bath & Hand Wash"} />
                 <BannerCard color={"#efd6da"} offer={"UP TO 33% OFF"} url={"https://www.jiomart.com/images/category/7/thumb/toothpaste-20200520.png"} item={"Toothpaste"} />
                 <BannerCard color={"#efd6da"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/191/thumb/noodle-pasta-vermicelli-20200603.png"} item={"Noodle, Pasta, Vermicelli"} />
@@ -52,7 +52,7 @@ function LandingPage() {
 
             </div>
 
-            <p style={{ marginLeft: "5%", padding: "8px 16px 16px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Shop by Categories</p>
+            <p className="heardertext" style={{ marginLeft: "5%", padding: "8px 16px 16px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Shop by Categories</p>
             <HomeWrapper> <Sliderthree /> </HomeWrapper>
 
 
@@ -74,14 +74,14 @@ function LandingPage() {
 
 
             <p style={{ marginLeft: "5%", padding: "8px 16px 16px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Offers on Household & Personal care</p>
-            <div style={{ width: "90%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 20% OFF"} url={"https://www.jiomart.com/images/category/37/thumb/all-purpose-cleaners-20200603.png"} item={"All Purpose Cleaners"} />
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 25% OFF"} url={"https://www.jiomart.com/images/category/43/thumb/detergent-bars-20200520.png"} item={"Detergent Bars"} />
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/28/thumb/0-28.png"} item={"Feminine Hygiene"} />
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/17/thumb/feminine-hygiene-20200605.png"} item={"Skin Care"} />
 
             </div>
-            <div style={{ width: "90%", margin: "auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 30% OFF"} url={"https://www.jiomart.com/images/category/6/thumb/oral-care-20200603.png"} item={"Oral Care"} />
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 35% OFF"} url={"https://www.jiomart.com/images/category/31/thumb/0-31.png"} item={"Hair Care"} />
                 <BannerCard color={"#c5f8c0"} offer={"UP TO 10% OFF"} url={"https://www.jiomart.com/images/category/10/thumb/0-10.png"} item={"baby Care"} />
@@ -106,14 +106,14 @@ function LandingPage() {
 
 
             <p style={{ marginLeft: "5%", padding: "8px 16px 16px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Offers on Groceries</p>
-            <div style={{ width: "90%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <BannerCard color={"#bce1fe"} offer={"UP TO 20% OFF"} url={"https://www.jiomart.com/images/category/188/thumb/breakfast-cereals-20200603.png"} item={"Breakfast Cereals"} />
                 <BannerCard color={"#bce1fe"} offer={"UP TO 15% OFF"} url={"https://www.jiomart.com/images/category/117/thumb/dairy-20200522.png"} item={"Dairy"} />
                 <BannerCard color={"#bce1fe"} offer={"UP TO 30% OFF"} url={"https://www.jiomart.com/images/category/17/thumb/0-17.png"} item={"Dry Fruits"} />
                 <BannerCard color={"#bce1fe"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/15/thumb/0-15.png"} item={"Masalas & Spices"} />
 
             </div>
-            <div style={{ width: "90%", margin: "auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <BannerCard color={"#bce1fe"} offer={"UP TO 40% OFF"} url={"https://www.jiomart.com/images/category/135/thumb/0-135.png"} item={"Snacks & Namkeen"} />
                 <BannerCard color={"#bce1fe"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/25/thumb/0-25.png"} item={"Fruit juices"} />
                 <BannerCard color={"#bce1fe"} offer={"UP TO 50% OFF"} url={"https://www.jiomart.com/images/category/26/thumb/0-26.png"} item={"Energy & Soft Drinks"} />
@@ -123,14 +123,14 @@ function LandingPage() {
 
             <p style={{ marginLeft: "5%", padding: "16px 16px 8px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Collection with Best Offers</p>
 
-            <div style={{ width: "90%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/509.png?v=1615910580"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/579.png?v=1615910580"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/507.png?v=1615910580"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/516.png?v=1615910580"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/527.png?v=1615910580"} />
             </div>
-            <div style={{ width: "90%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/515.png?v=1615910580"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/530.png?v=1615910580"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/291/501.png?v=1615910580"} />
@@ -139,7 +139,7 @@ function LandingPage() {
             </div>
 
             <p style={{ marginLeft: "5%", padding: "16px 16px 8px 4px", fontSize: "22px", color: "#000", fontFamily: "Arial", fontWeight: "bold" }}>Kid's Fashion</p>
-            <div style={{ width: "90%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ width: "90%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center" }}>
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/246/587.png?v=1612275415"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/246/501.png?v=1612275415"} />
                 <SmallCard url={"https://www.jiomart.com/images/cms/section/category/246/533.png?v=1612275415"} />
@@ -154,7 +154,7 @@ function LandingPage() {
 
             </div>
 
-            <div style={{ width: "95%", margin: "15px auto", display: "flex", justifyContent: "space-between", alignItems: "center",marginBottom:"50px" }}>
+            <div style={{ width: "95%", margin: "15px auto", display: "flex",flexWrap:"wrap", justifyContent: "space-between", alignItems: "center",marginBottom:"50px" }}>
                 <WomenCard url={"https://www.jiomart.com/images/cms/section/category/174/527.png?v=1615911160"} item={"Tshirts"} />
                 <WomenCard url={"https://www.jiomart.com/images/cms/section/category/174/495.png?v=1615911160"} item={"Salwars & Churidars"} />
                 <WomenCard url={"https://www.jiomart.com/images/cms/section/category/174/578.png?v=1615911160"} item={"Tops"} />

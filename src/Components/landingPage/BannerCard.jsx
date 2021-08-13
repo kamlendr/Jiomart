@@ -1,5 +1,6 @@
 import React from 'react'
 import style from "./LandingPage.module.css"
+import { Link } from "react-router-dom"
 function BannerCard(props) {
     if (props.color == "#efd6da") {
         return (
@@ -8,10 +9,12 @@ function BannerCard(props) {
                     <h5 style={{ textAlign: "center", paddingTop: "8px", color: "#fff" }}>{props.offer}</h5>
                 </div>
                 <div className={style.BannerItem}>
-                    <div className={style.BannerItemInner}>
-                        <img className={style.BannerImg} src={props.url} alt="" />
-                        <h4 style={{ fontSize: "16px", fontWeight: "bold" }} >{props.item}</h4>
-                    </div>
+                    <Link to={props.itemUrl}>
+                        <div className={style.BannerItemInner}>
+                            <img className={style.BannerImg} src={props.url} alt="" />
+                            <h4 style={{ fontSize: "16px", fontWeight: "bold" }} >{props.item}</h4>
+                        </div>
+                    </Link>
                 </div>
             </div>
         )

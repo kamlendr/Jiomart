@@ -1,6 +1,7 @@
 .Slider{
     margin: 16px auto 10px;
     cursor: pointer;
+    width: 100%;
 }
 .swiper-button-prev,.swiper-button-next{
     background-color: rgb(252, 251, 251);

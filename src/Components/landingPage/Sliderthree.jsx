@@ -24,14 +24,18 @@ export default function Sliderthree() {
         ["https://www.jiomart.com/images/category/3/thumb/0-3.png?v=1607022291", "Beverages"],
     ]
     return (
-        <Slider {...settings}>
-            {Categories.map((el) => (<div style={{ width: "200px", border: "1px solid black" }} className="sliderthree">
-                <a href="">
-                    <img style={{ width: "150px", margin: "auto", height: "150px" }} src={el[0]} alt="" />
-                    <h6 style={{ textAlign: "center" }}>{el[1]}</h6>
-                </a>
+        <div className="slidertwo">
+            <Slider {...settings}>
+                {Categories.map((el) => (<div style={{ width: "190px", border: "1px solid black" }} className="sliderthree">
+                    <a href="">
+                        <div style={{ width: "180px", height: "230px", border: "1px solid rgba(111,114,132,.25)", borderRadius: "5px", display: 'flex', alignItems: "center", flexDirection: "column" }}>
+                            <img style={{ width: "150px", margin: "auto", height: "150px" }} src={el[0]} alt="" />
+                            <p style={{ textAlign: "center", fontSize: "15px", color: "black", fontWeight: "bold" }}>{el[1]}</p>
+                        </div>
+                    </a>
 
-            </div>))}
-        </Slider>
+                </div>))}
+            </Slider>
+        </div>
     );
 }

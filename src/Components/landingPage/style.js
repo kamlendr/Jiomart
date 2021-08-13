@@ -8,6 +8,7 @@ export const HomeWrapper = styled.div`
     height: 120px;
   }
   
+  
   .slick-list{
     margin-left: 30px;
   }

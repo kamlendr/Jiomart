@@ -1,6 +1,13 @@
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './App.css';
-import { TopCatBar, SideNavBar, Routes, NavigationBar,Context ,Footer1} from './Components';
+import {
+  TopCatBar,
+  SideNavBar,
+  Routes,
+  NavigationBar,
+  Context,
+  Footer1,
+} from './Components';
 
 function App() {
   const [sideBarVisible, setSideBarVisible] = useState(false);
@@ -9,7 +16,6 @@ function App() {
   useEffect(() => {
     setcartPopUpVisible(true);
   }, [setcartPopUpVisible]);
-
   return (
     <div className='App'>
       <header className='nav-container'>
@@ -27,8 +33,7 @@ function App() {
       <main>
         <Routes />
       </main>
-      
-     <Footer1/>
+      <Footer1 />
     </div>
   );
 }

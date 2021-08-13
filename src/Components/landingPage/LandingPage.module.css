@@ -2,6 +2,7 @@
     width: 90%;
     margin: 20px auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -12,6 +13,7 @@
 .BannerCard{
     width: 282px;
     height: auto;
+    margin: 15px auto;
     border-radius: 15px;
     cursor: pointer;
 }

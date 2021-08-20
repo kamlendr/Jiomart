@@ -6,8 +6,8 @@ import { Login } from '../../Redux/Login/action';
 import style from './login.module.css';
 import { Redirect } from 'react-router-dom';
 export const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setpassword] = useState('');
+  const [email, setEmail] = useState('eve.holt@reqres.in');
+  const [password, setpassword] = useState('999999999');
   const isAuth = useSelector((state) => state.Auth.isAuth);
   const dispatch = useDispatch();
 

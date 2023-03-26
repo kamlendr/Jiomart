@@ -16,47 +16,47 @@ import axios from 'axios';
 
 export const getProducts =
   (sort, mainCat = '', cat, types, brands, price, currentPage) =>
-  async (dispatch) => {
-    const fetchProducts = axios.create({
-      baseURL: 'https://kanthuserver.herokuapp.com/',
-      method: 'get',
-      params: {
-        _sort: sort.property,
-        _order: sort.order,
-        cat: cat,
-        type: types,
-        brand: brands,
-        cost_lte: price[1],
-        cost_gte: price[0],
-        _limit: 12,
-        _page: currentPage,
-      },
-    });
-    try {
-      dispatch({ type: PRODUCTS_REQUEST });
-
-      const response = mainCat
-        ? await fetchProducts('/products', { params: { mainCat: mainCat } })
-        : await fetchProducts('/products');
-
-      dispatch({
-        type: PRODUCTS_SUCCESS,
-        payload: response,
+    async (dispatch) => {
+      const fetchProducts = axios.create({
+        baseURL: 'https://hungry-polo-shirt-lion.cyclic.app/',
+        method: 'get',
+        params: {
+          _sort: sort.property,
+          _order: sort.order,
+          cat: cat,
+          type: types,
+          brand: brands,
+          cost_lte: price[1],
+          cost_gte: price[0],
+          _limit: 12,
+          _page: currentPage,
+        },
       });
-    } catch (error) {
-      dispatch({
-        type: PRODUCTS_FAIL,
-        payload: error.response,
-      });
-    }
-  };
+      try {
+        dispatch({ type: PRODUCTS_REQUEST });
+
+        const response = mainCat
+          ? await fetchProducts('/products', { params: { mainCat: mainCat } })
+          : await fetchProducts('/products');
+
+        dispatch({
+          type: PRODUCTS_SUCCESS,
+          payload: response,
+        });
+      } catch (error) {
+        dispatch({
+          type: PRODUCTS_FAIL,
+          payload: error.response,
+        });
+      }
+    };
 
 export const getCategoryDetails = (payload) => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_REQUEST });
 
     const { data } = await axios.get(
-      'https://kanthuserver.herokuapp.com/categories'
+      'https://hungry-polo-shirt-lion.cyclic.app/categories'
     );
 
     dispatch({
@@ -74,7 +74,7 @@ export const getCategoryDetails = (payload) => async (dispatch) => {
 export const searchProducts =
   (query, sort, currentPage) => async (dispatch) => {
     const fetchProducts = axios.create({
-      baseURL: 'https://kanthuserver.herokuapp.com/',
+      baseURL: 'https://hungry-polo-shirt-lion.cyclic.app/',
       method: 'get',
       params: {
         q: query,
@@ -109,11 +109,11 @@ export const updateCart = (payload) => {
 
   return payload.quantity !== 0
     ? {
-        type: UPDATE_CART,
-        payload: payload,
-      }
+      type: UPDATE_CART,
+      payload: payload,
+    }
     : {
-        type: REMOVE_FROM_CART,
-        payload: payload.product.id,
-      };
+      type: REMOVE_FROM_CART,
+      payload: payload.product.id,
+    };
 };

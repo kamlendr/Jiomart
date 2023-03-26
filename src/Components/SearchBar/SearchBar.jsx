@@ -14,7 +14,7 @@ const SearchBar = () => {
   React.useEffect(() => {
     const changeHandle = async (input) => {
       const { data } = await axios.get(
-        `https://kanthuserver.herokuapp.com/products?q=${input}`
+        `https://hungry-polo-shirt-lion.cyclic.app/products?q=${input}`
       );
       setstate(data);
     };

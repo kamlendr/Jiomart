@@ -71,7 +71,7 @@ const ProductLayout = ({ match, mainCat }) => {
 
   useEffect(() => {
     const fetchProducts = axios.create({
-      baseURL: 'https://kanthuserver.herokuapp.com/',
+      baseURL: 'https://hungry-polo-shirt-lion.cyclic.app/',
       method: 'get',
       params: {
         cat: dynamicLink,
